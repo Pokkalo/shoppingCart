@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React,{useState,useEffect} from 'react'
 import { Form, Button, } from 'react-bootstrap'
 
@@ -86,6 +87,13 @@ const Account = () => {
       </Form>
       </div>
     </div>
+=======
+import React from 'react'
+
+const Account = () => {
+  return (
+    <div className='--pageSpace'>Account</div>
+>>>>>>> 7035063ffd03d77beaf26a518790e0353b5d3784
   )
 }
 

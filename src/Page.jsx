@@ -12,7 +12,11 @@ import ErrorPage from './pages/ErrorPage'
 import Home from './pages/Home'
 import Setting from './pages/Setting'
 import About from './pages/About'
+<<<<<<< HEAD
 import Products from './pages/Products'
+=======
+import Service from './pages/Service'
+>>>>>>> 7035063ffd03d77beaf26a518790e0353b5d3784
 import Cart from './pages/Cart'
 
 const Page = () => {
@@ -30,7 +34,11 @@ const Page = () => {
           <Route path='/account' element={<Account/>}></Route>
           <Route path='/setting/:username' element={<Setting/>}></Route>
           <Route path='/about' element={<About/>}></Route>
+<<<<<<< HEAD
           <Route path='/products' element={<Products/>}></Route>
+=======
+          <Route path='/service' element={<Service/>}></Route>
+>>>>>>> 7035063ffd03d77beaf26a518790e0353b5d3784
           <Route path='/cart' element={<Cart/>}></Route>
           <Route path='*' element={<ErrorPage/>}></Route>
       </Routes>
