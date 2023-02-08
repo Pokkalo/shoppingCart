@@ -9,11 +9,12 @@
 }
 
 .--pageSpace{
-  height: 350px;
+  /* height: 500px; */
+  min-height: 400px;
   /* 264px */
 }
 
-.--screen-size{
+.--login-screen_size{
   width: 100vw;
   height: 100vh;
 }
@@ -21,4 +22,12 @@
 .--login-square-size{
   width: 50%;
   height: 50%;
+}
+
+.--product-image_size{
+  opacity: 0.3;
+}
+
+.--account-image_style{
+  opacity: 0.3;
 }

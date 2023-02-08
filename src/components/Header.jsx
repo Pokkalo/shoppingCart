@@ -9,6 +9,8 @@ import FormControl from 'react-bootstrap/FormControl'
 import Button from 'react-bootstrap/Button'
 import { Link } from 'react-router-dom'
 
+import {BsFillGearFill,BsPersonCircle} from 'react-icons/bs'
+
 
 const Header = () => {
 
@@ -26,27 +28,32 @@ const Header = () => {
   <Navbar.Toggle aria-controls="navbarScroll" />
   <Navbar.Collapse id="navbarScroll">
     <Nav
-      className="mr-auto my-2 my-lg-0"
+      
+      className="mr-auto my-2 my-lg-0 bg-dark"
       navbarScroll
 
       hover
     >
       <Nav.Link href="/" >Home</Nav.Link>
       <Nav.Link href="/about">About</Nav.Link>
-      <Nav.Link href="/service">Service</Nav.Link>
+      <Nav.Link href="/products">Products</Nav.Link>
       <Nav.Link href="/cart">Cart</Nav.Link>
-      <Nav.Link href="/account">Account</Nav.Link>
       {/* <NavDropdown title="Link" id="navbarScrollingDropdown">
         <NavDropdown.Item href="/setting">Setting</NavDropdown.Item>
         <NavDropdown.Item href="#action4">Another action</NavDropdown.Item>
         <NavDropdown.Divider />
         <NavDropdown.Item href="#action5">Something else here</NavDropdown.Item>
-      </NavDropdown> */}
+      </NavDropdown> 
+
       <Nav.Link href="#" disabled>
         Link
-      </Nav.Link>
+      </Nav.Link>*/}
     </Nav>
-    <Form className="d-flex">
+      <Nav className='d-flex flex-row'>
+        <Nav.Link variant='dark' href='' className='d-none d-lg-flex'><BsFillGearFill/></Nav.Link>
+        <Nav.Link variant='dark' href='/account' className='d-none d-lg-flex'><BsPersonCircle/></Nav.Link>
+      </Nav>
+    {/* <Form className="d-flex">
       <FormControl
         type="search"
         placeholder="Search"
@@ -54,7 +61,9 @@ const Header = () => {
         aria-label="Search"
       />
       <Button variant="outline-light">Search</Button>
-    </Form>
+    </Form> */}
+
+    
   </Navbar.Collapse>
 </Navbar>
 
