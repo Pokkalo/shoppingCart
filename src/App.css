@@ -9,7 +9,6 @@
 }
 
 .--pageSpace{
-<<<<<<< HEAD
   /* height: 500px; */
   min-height: 400px;
   /* 264px */
@@ -31,8 +30,8 @@
 
 .--account-image_style{
   opacity: 0.3;
-=======
-  height: 350px;
-  /* 264px */
->>>>>>> 7035063ffd03d77beaf26a518790e0353b5d3784
+}
+
+.--login-hidden-element{
+  display: none;
 }

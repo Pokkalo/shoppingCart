@@ -12,14 +12,16 @@ import ErrorPage from './pages/ErrorPage'
 import Home from './pages/Home'
 import Setting from './pages/Setting'
 import About from './pages/About'
-<<<<<<< HEAD
 import Products from './pages/Products'
-=======
-import Service from './pages/Service'
->>>>>>> 7035063ffd03d77beaf26a518790e0353b5d3784
 import Cart from './pages/Cart'
+import UserPage from './pages/UserPage'
+
+import { UserData } from './data/UserData'
+import { useState } from 'react'
 
 const Page = () => {
+  const [dataUser, setDataUser] = useState({})
+  
   return (
     <>
     <Router>
@@ -28,22 +30,20 @@ const Page = () => {
         <NavLink to='/account'>Account</NavLink>
         <NavLink to='/setting'>Setting</NavLink>
       </nav> */}
+      <UserData.Provider value={{dataUser, setDataUser}}>
       <Header/>
       <Routes>
           <Route path='/' element={<Home/>}></Route>
           <Route path='/account' element={<Account/>}></Route>
+          <Route path='/account/userpage' element={<UserPage />}></Route>
           <Route path='/setting/:username' element={<Setting/>}></Route>
           <Route path='/about' element={<About/>}></Route>
-<<<<<<< HEAD
           <Route path='/products' element={<Products/>}></Route>
-=======
-          <Route path='/service' element={<Service/>}></Route>
->>>>>>> 7035063ffd03d77beaf26a518790e0353b5d3784
           <Route path='/cart' element={<Cart/>}></Route>
           <Route path='*' element={<ErrorPage/>}></Route>
       </Routes>
       <Footer/>
-      
+      </UserData.Provider>
     </Router>
 
     </>

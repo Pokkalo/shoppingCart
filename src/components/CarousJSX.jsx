@@ -10,11 +10,7 @@ const CarousJSX = () => {
     };
   
   return (
-<<<<<<< HEAD
     <div className=' mb-3'>
-=======
-    <div className='--pageSpace m-2'>
->>>>>>> 7035063ffd03d77beaf26a518790e0353b5d3784
     <Carousel activeIndex={index} onSelect={handleSelect}>
       <Carousel.Item>
         <img

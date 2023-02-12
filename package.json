@@ -11,10 +11,8 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "bootstrap": "^4.6.0",
-<<<<<<< HEAD
     "firebase": "^9.17.1",
-=======
->>>>>>> 7035063ffd03d77beaf26a518790e0353b5d3784
+    "firebaseui": "^6.0.2",
     "react": "^18.2.0",
     "react-bootstrap": "^2.7.0",
     "react-bootstrap-icons": "^1.10.2",
