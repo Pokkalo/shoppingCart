@@ -24,6 +24,7 @@ const Account = () => {
   const nav = useNavigate()
 
   let userData = []
+  let a = []
 
   useEffect(() => {
     onAuthStateChanged(auth, (currentUser) => {
