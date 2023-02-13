@@ -9,12 +9,12 @@ import {
   signOut,
 } from "firebase/auth";
 
-import { UserData } from '../data/UserData';
+
 
 
 const UserPage = () => {
 
-  const {dataUser, setDataUser} = useContext(UserData)
+
 
   const logout = async () => {
     await signOut(auth);

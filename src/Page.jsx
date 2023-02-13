@@ -7,7 +7,6 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 
 import Account from './pages/Account'
-import Announce from './pages/Announce'
 import ErrorPage from './pages/ErrorPage'
 import Home from './pages/Home'
 import Setting from './pages/Setting'
@@ -16,11 +15,15 @@ import Products from './pages/Products'
 import Cart from './pages/Cart'
 import UserPage from './pages/UserPage'
 
-import { UserData } from './data/UserData'
+import { AuthContextProvider } from './data/UserData'
+
 import { useState } from 'react'
 
 const Page = () => {
-  const [dataUser, setDataUser] = useState({})
+  // const [email, setEmail] = useState("")
+  // const [password, setPassword] = useState("")
+  // const [error, setError] = useState("")
+
   
   return (
     <>
@@ -30,20 +33,21 @@ const Page = () => {
         <NavLink to='/account'>Account</NavLink>
         <NavLink to='/setting'>Setting</NavLink>
       </nav> */}
-      <UserData.Provider value={{dataUser, setDataUser}}>
+      <AuthContextProvider >
       <Header/>
       <Routes>
           <Route path='/' element={<Home/>}></Route>
           <Route path='/account' element={<Account/>}></Route>
           <Route path='/account/userpage' element={<UserPage />}></Route>
-          <Route path='/setting/:username' element={<Setting/>}></Route>
+          {/* <Route path='/setting/:username' element={<Setting/>}></Route> */}
+          <Route path='/setting' element={<Setting/>}></Route>
           <Route path='/about' element={<About/>}></Route>
           <Route path='/products' element={<Products/>}></Route>
           <Route path='/cart' element={<Cart/>}></Route>
           <Route path='*' element={<ErrorPage/>}></Route>
       </Routes>
       <Footer/>
-      </UserData.Provider>
+      </AuthContextProvider>
     </Router>
 
     </>

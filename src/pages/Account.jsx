@@ -2,75 +2,97 @@ import React,{useState,useEffect,useContext} from 'react'
 import { Form, Button, } from 'react-bootstrap'
 import { useNavigate, } from 'react-router-dom';
 
+import { UserAuth } from '../data/UserData';
 
-import { auth } from '../firebase-config';
-import {
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  onAuthStateChanged,
-  signOut,
-} from "firebase/auth";
 
 
 const Account = () => {
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
 
-  const [user, setUser] = useState({});
-  const [errorMess, setErrorMess] = useState()
+  // const [user, setUser] = useState({});
+  const [errorMess, setErrorMess] = useState("")
 
-  const [state, setState] = useState(false)
-  const [logged, setLogged] = useState(false)
+  const {signIn, logout, user} = UserAuth()
   
   const nav = useNavigate()
+  
 
   let userData = []
 
-  useEffect(() => {
-    onAuthStateChanged(auth, (currentUser) => {
-      if(user){
-        setUser(currentUser);
-      }else{
-        setUser(null)
-      }
-      setState(!false)
-    });
-  }, [state == true, logged == true])
- 
-
-  const login = async (e) => {
-    e.preventDefault()
-    try {
-      const user = await signInWithEmailAndPassword(
-        auth,
-        loginEmail,
-        loginPassword
-      );
-      console.log(user);
-      setErrorMess('')
-      setUser(user)
-      setLogged(true)
-      userData = user
-    } catch (error) {
-      console.log(error.message);
-      setErrorMess(error.message)
-      setLogged(false)
-    } 
-  };
-
-  function nextPage (){
-    nav("./UserPage")
-  }
   
 
-  const logout = async () => {
-    await signOut(auth)
-    nextPage();
-  };
+  // useEffect(() => {
+  //   onAuthStateChanged(auth, (currentUser) => {
+  //     if(user){
+  //       setUser(currentUser);
+  //     }else{
+  //       setUser(null)
+  //     }
+  //     setState(!false)
+  //   });
+  // }, [state === true, logged === true])
+ 
+  const handleLogin = async (e) => {
+    e.preventDefault()
+    setErrorMess("")
+    try {
+      await signIn(loginEmail, loginPassword)
+    } catch (error) {
+      setErrorMess(error.message)
+      console.log(error.message)
+    }
+  }
+
+  const handleSignOut = async() =>{
+    try {
+      await logout()
+      nav('/account/userpage')
+      
+      console.log("You are out")
+    } catch (error) {
+      console.log(error.message)
+    }
+
+  }
+
+  // const login = async (e) => {
+  //   e.preventDefault()
+  //   try {
+  //     const user = await signInWithEmailAndPassword(
+  //       auth,
+  //       loginEmail,
+  //       loginPassword
+  //     );
+  //     console.log(user);
+  //     setErrorMess('')
+  //     setUser(user)
+  //     setLogged(true)
+  //     userData = user
+  //   } catch (error) {
+  //     console.log(error.message);
+  //     setErrorMess(error.message)
+  //     setLogged(false)
+  //   } 
+  // };
+
+
+  
+
+  // const logout = async () => {
+  //   await signOut(auth)
+  //   nextPage();
+  // };
 
   function printing(e){
     e.preventDefault();
-    console.log(user.email)
+    try {
+      console.log(user.email)
+    } catch (error) {
+      console.log(user)
+      console.log(error.message)
+    }
+    
     // for(let data of user){
     //   console.log(typeof data)
       
@@ -82,9 +104,9 @@ const Account = () => {
     
     <div className=' --screen-size --pageSpace d-flex flex-column justify-content-center align-items-center '>
       <img src="./imgs/happy_elderly.png" className='--account-image_style w-100' alt="" />
-      {logged || user? null : 
+      {user? null : 
       <div className='jumbotron d-flex flex-column justify-content-center align-items-center m-0 p-5 position-absolute'>
-      { state !== false ? <h2>Please login your account</h2>: <h2>Welcome back!! </h2> }
+     <h2>Please login your account</h2>
       <hr className=''/>
       
       <Form >
@@ -107,15 +129,18 @@ const Account = () => {
         <Form.Group controlId="formBasicCheckbox">
           <Form.Check type="checkbox" label="Check me out" />
         </Form.Group>
-        <Button variant="dark" type="submit" onClick={login}>
+        <Button variant="dark" type="submit" onClick={handleLogin}>
           Submit
+        </Button>
+        <Button variant="dark" type="submit" onClick={printing}>
+          console
         </Button>
 
       </Form>
       </div>
       }
 
-      {logged || user? <div className='jumbotron d-flex flex-column justify-content-center align-items-center m-0 p-5 position-absolute --login-hidden-element'>
+      {user? <div className='jumbotron d-flex flex-column justify-content-center align-items-center m-0 p-5 position-absolute --login-hidden-element'>
       <h2>Welcome back!! <br /> {user.email}</h2>
       <hr className=''/>
       
@@ -126,7 +151,7 @@ const Account = () => {
           </Form.Text>
         </Form.Group>
 
-        <Button variant="dark" type="submit" onClick={logout}>
+        <Button variant="dark" type="submit" onClick={handleSignOut}>
           Logout
         </Button>
         <Button variant="dark" type="submit" onClick={printing}>
