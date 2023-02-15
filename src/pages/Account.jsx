@@ -4,8 +4,6 @@ import { useNavigate, } from 'react-router-dom';
 
 import { UserAuth } from '../data/UserData';
 
-
-
 const Account = () => {
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
@@ -13,27 +11,15 @@ const Account = () => {
   // const [user, setUser] = useState({});
   const [errorMess, setErrorMess] = useState("")
 
-  const {signIn, logout, user} = UserAuth()
+  const {signIn, logout, user, createUser} = UserAuth()
+
+  const [createState, setCreateState] = useState(false)
   
   const nav = useNavigate()
   
 
   let userData = []
-  let a = []
 
-  
-
-  // useEffect(() => {
-  //   onAuthStateChanged(auth, (currentUser) => {
-  //     if(user){
-  //       setUser(currentUser);
-  //     }else{
-  //       setUser(null)
-  //     }
-  //     setState(!false)
-  //   });
-  // }, [state === true, logged === true])
- 
   const handleLogin = async (e) => {
     e.preventDefault()
     setErrorMess("")
@@ -48,42 +34,27 @@ const Account = () => {
   const handleSignOut = async() =>{
     try {
       await logout()
+      setCreateState(false)
       nav('/account/userpage')
       
       console.log("You are out")
     } catch (error) {
       console.log(error.message)
-    }
 
+    }
   }
 
-  // const login = async (e) => {
-  //   e.preventDefault()
-  //   try {
-  //     const user = await signInWithEmailAndPassword(
-  //       auth,
-  //       loginEmail,
-  //       loginPassword
-  //     );
-  //     console.log(user);
-  //     setErrorMess('')
-  //     setUser(user)
-  //     setLogged(true)
-  //     userData = user
-  //   } catch (error) {
-  //     console.log(error.message);
-  //     setErrorMess(error.message)
-  //     setLogged(false)
-  //   } 
-  // };
-
-
-  
-
-  // const logout = async () => {
-  //   await signOut(auth)
-  //   nextPage();
-  // };
+  const handleCreate = async(e) => {
+    e.preventDefault();
+    try {
+      await createUser(loginEmail, loginPassword)
+      console.log("account created!")
+      setCreateState(true)
+    } catch (error) {
+      console.log(error.message)
+      setErrorMess(error.message)
+    }
+  }
 
   function printing(e){
     e.preventDefault();
@@ -107,7 +78,7 @@ const Account = () => {
       <img src="./imgs/happy_elderly.png" className='--account-image_style w-100' alt="" />
       {user? null : 
       <div className='jumbotron d-flex flex-column justify-content-center align-items-center m-0 p-5 position-absolute'>
-     <h2>Please login your account</h2>
+     {createState? <h2>New Account Created!</h2> :<h2>Please login your account</h2>}
       <hr className=''/>
       
       <Form >
@@ -130,12 +101,17 @@ const Account = () => {
         <Form.Group controlId="formBasicCheckbox">
           <Form.Check type="checkbox" label="Check me out" />
         </Form.Group>
+
+        <Form.Group className='d-flex flex-row justify-content-between mt-3'>
         <Button variant="dark" type="submit" onClick={handleLogin}>
           Submit
         </Button>
-        <Button variant="dark" type="submit" onClick={printing}>
-          console
+        <Button variant="dark" type="submit" className=''
+        //  onClick={handleCreate}
+         >
+          Create account
         </Button>
+        </Form.Group>
 
       </Form>
       </div>
