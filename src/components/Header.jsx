@@ -8,6 +8,8 @@ import Form from 'react-bootstrap/Form'
 import FormControl from 'react-bootstrap/FormControl'
 import Button from 'react-bootstrap/Button'
 import { Link } from 'react-router-dom'
+import style from './header.css'
+import "bootstrap/dist/css/bootstrap.min.css"
 
 import {BsFillGearFill,BsPersonCircle} from 'react-icons/bs'
 
@@ -23,21 +25,28 @@ const Header = () => {
   }
 
   return (
-<Navbar bg="dark" expand="lg" variant='dark' style={{maxHeight: "300px"}} >
-  <Navbar.Brand href="#">Elderly Family</Navbar.Brand>
+<Navbar expand="lg" style={{maxHeight: "300px"}} >
+    <div className='container sticky-top'>
+  <Navbar.Brand href="#">
+  <img
+      className="d-block"
+      src="./imgs/logo.png" width={150}
+    />
+
+  </Navbar.Brand>
   <Navbar.Toggle aria-controls="navbarScroll" />
   <Navbar.Collapse id="navbarScroll">
     <Nav
       
-      className="mr-auto my-2 my-lg-0 bg-dark"
+      className="ml-auto pr-5 my-2 my-lg-0" 
       navbarScroll
 
       hover
     >
-      <Nav.Link href="/" >Home</Nav.Link>
-      <Nav.Link href="/about">About</Nav.Link>
-      <Nav.Link href="/products">Products</Nav.Link>
-      <Nav.Link href="/cart">Cart</Nav.Link>
+      <Nav.Link href="/" className='px-4'><h1>Home</h1></Nav.Link>
+      <Nav.Link href="/about" className='px-4'><h1>About</h1></Nav.Link>
+      <Nav.Link href="/products" className='px-4'><h1>Products</h1></Nav.Link>
+      <Nav.Link href="/contact" className='px-4'><h1>Contact</h1></Nav.Link>
       {/* <NavDropdown title="Link" id="navbarScrollingDropdown">
         <NavDropdown.Item href="/setting">Setting</NavDropdown.Item>
         <NavDropdown.Item href="#action4">Another action</NavDropdown.Item>
@@ -50,8 +59,14 @@ const Header = () => {
       </Nav.Link>*/}
     </Nav>
       <Nav className='d-flex flex-row'>
-        <Nav.Link variant='dark' href='' className='d-none d-lg-flex'><BsFillGearFill/></Nav.Link>
-        <Nav.Link variant='dark' href='/account' className='d-none d-lg-flex'><BsPersonCircle/></Nav.Link>
+      <Nav.Link variant='dark' href='/cart' className='d-none d-lg-flex'>
+        <img src="./icons/cart.svg" className='icons' alt="Cart" />
+          <BsFillGearFill/></Nav.Link>
+        <Nav.Link variant='dark' href='' className='d-none d-lg-flex'>
+        <img src="./icons/setting.svg" className='icons' alt="Settings" />
+          <BsFillGearFill/></Nav.Link>
+        <Nav.Link variant='dark' href='/account' className='d-none d-lg-flex'>
+        <img src="./icons/user.svg" className='icons' alt="Users" /></Nav.Link>
       </Nav>
     {/* <Form className="d-flex">
       <FormControl
@@ -65,6 +80,7 @@ const Header = () => {
 
     
   </Navbar.Collapse>
+  </div>
 </Navbar>
 
   )
