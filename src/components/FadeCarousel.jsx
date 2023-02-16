@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import Carousel from 'react-bootstrap/Carousel';
-import style from './carousel.css'
+import style from './header.css'
 
 
 const FadeCarousel = () => {
@@ -16,7 +16,7 @@ const FadeCarousel = () => {
     <Carousel fade>
   <Carousel.Item>
     <img
-      className="d-block"
+      className="d-block caroursel_picture"
       src="./imgs/elderly-couplewalk.jpg"
       alt="First slide"
     />
@@ -28,7 +28,7 @@ const FadeCarousel = () => {
   </Carousel.Item>
   <Carousel.Item>
     <img
-      className="d-block"
+      className="d-block caroursel_picture"
       src="./imgs/cycling.jpg"
       alt="Second slide"
     />
@@ -40,7 +40,7 @@ const FadeCarousel = () => {
   </Carousel.Item>
   <Carousel.Item>
     <img
-      className="d-block"
+      className="d-block caroursel_picture"
       src="./imgs/elderly-couplewalk2.jpg"
       alt="Third slide"
     />

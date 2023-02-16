@@ -1,0 +1,18 @@
+div.card {
+    display: inline-block;
+    width: 300px;
+}
+
+div.card img{
+    transform: scale(80%);
+}
+
+div.card img:hover{
+    transform: scale(100%);
+    transition: 1s;
+}
+
+.card-title{
+    width: 300px;
+    background-color: antiquewhite;
+}
