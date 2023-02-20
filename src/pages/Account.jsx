@@ -3,6 +3,8 @@ import { Form, Button, } from 'react-bootstrap'
 import { useNavigate, } from 'react-router-dom';
 
 import { UserAuth } from '../data/UserData';
+import { db } from '../firebase-config';
+import { collection, doc, setDoc } from "firebase/firestore"; 
 
 const Account = () => {
   const [loginEmail, setLoginEmail] = useState("");
@@ -16,7 +18,7 @@ const Account = () => {
   const [createState, setCreateState] = useState(false)
   
   const nav = useNavigate()
-  
+  const usersRef = collection(db, "user"); 
 
   let userData = []
 
@@ -47,9 +49,17 @@ const Account = () => {
   const handleCreate = async(e) => {
     e.preventDefault();
     try {
-      await createUser(loginEmail, loginPassword)
+      const test = await createUser(loginEmail, loginPassword)
+ 
       console.log("account created!")
       setCreateState(true)
+      console.log(test.user.uid)
+
+      await setDoc(doc(usersRef, test.user.uid), {
+        shoppingCart: [],
+        personalInfo: []
+      });
+
     } catch (error) {
       console.log(error.message)
       setErrorMess(error.message)
@@ -86,7 +96,7 @@ const Account = () => {
           <Form.Label>Email address</Form.Label>
           <Form.Control type="email" placeholder="Enter email" onChange={(event) => {
             setLoginEmail(event.target.value);
-          }}/>
+          }}/> 
           <Form.Text className="text-muted">
             {errorMess === "" ?  "We'll never share your email with anyone else.": errorMess}
           </Form.Text>
@@ -107,7 +117,7 @@ const Account = () => {
           Submit
         </Button>
         <Button variant="dark" type="submit" className=''
-        //  onClick={handleCreate}
+         onClick={handleCreate}
          >
           Create account
         </Button>
