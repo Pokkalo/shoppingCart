@@ -4,7 +4,7 @@
 }
 
 
-  .card{
+  .--rank_card{
     background-color: transparent;
     position: relative;
     width: 450px;
@@ -16,11 +16,11 @@
     border: 0;
   }
 
-  .allcards{
+  .--rank-allcards{
     padding: 10px 20px 80px 20px;
   }
 
-  .card .circle{
+  .--rank_card .circle{
     position: absolute;
     top: 0;
     left: 0;
@@ -28,7 +28,7 @@
     height: 100%;
     overflow: hidden;
   }
-  .card .circle::before{
+  .--rank_card .circle::before{
     content: "";
     position: absolute;
     top: 0;
@@ -40,48 +40,48 @@
     border-radius: 20px;
     transition: 0.5s;
   }
-  .card:hover .circle::before{
+  .--rank_card:hover .circle::before{
     clip-path: circle(400px at center);
     background: #0065c3;
   }
-  .card img{
+  .--rank_card img{
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
     height: 270px;
     pointer-events: none;
-    transition: 0.5s;
+    transition: 0.6s;
   }
-  .card:hover img{
+  .--rank_card:hover img{
     left: 70%;
     height: 350px;
   }
-  .card .content{
+  .--rank_card .content{
     position: relative;
-    left: -120px;
+    left: 10px;
     width: 50%;
-    padding: 30px 20px 20px 40px;
+    padding: 10px 20px;
     transition: 0.5s;
     pointer-events: none;
     opacity: 0;
     visibility: hidden;
   }
-  .card:hover .content{   
+  .--rank_card:hover .content{   
     opacity: 1;
     visibility: visible;
   }
-  .card .content h2{
+  .--rank_card .content h2{
     color: white;
     text-transform: uppercase;
     font-size: 2em;
     line-height: 1em;
     margin-bottom: 7px;
   }
-  .card .content p{
+  .--rank_card .content p{
     color: white;
   }
-  .card .content a{
+  .--rank_card .content a{
     position: relative;
     color: black;
     padding: 10px 20px;
@@ -92,33 +92,33 @@
     display: inline-block;
     font-weight: 700;
   }
-  .card:nth-child(2):hover .circle::before{
+  .--rank_card:nth-child(2):hover .circle::before{
     clip-path: circle(400px at center);
     background: rgba(0, 0, 0, 0.939);
   }
   @media (max-width:991px) {
-    .card{
+    .--rank_card{
       width: auto;
       max-width: 350px;
       align-items: flex-start;
       margin: 13px;
     }
-    .card:hover{
+    .--rank_card:hover{
       height: 600px;
     }
-    .card .content{
+    .--rank_card .content{
       width: 100%;
       left: 0;
       padding: 30px;
     }
-    .card:hover img{
+    .--rank_card:hover img{
       top: 70%;
       left: 50%;
       height: 300px;
     }
   }
   @media (max-width:420px) {
-    .card .content{
+    .--rank_card .content{
       padding: 20px;
     }
   }
@@ -127,7 +127,7 @@
 
 
 
-/* div.card {
+/* div.--rank_card {
     display: inline-block;
     width: 300px;
 }

@@ -7,8 +7,8 @@ const HomeProduct = () => {
     <div className="secondbg">
     <div className='container-fluid'>
         <h1 className='spacing text-center pt-5 catpaw'>Borrow Me</h1>
-        <div className="allcards row spacing mt-5">
-        <div class="card col">
+        <div className="--rank-allcards row spacing mt-5">
+        <div class="--rank_card col">
          <div class="circle"></div>
         <div class="content">
          <h2>Dog</h2>
@@ -18,7 +18,7 @@ const HomeProduct = () => {
          </div>
          <img src="./imgs/dog.png" alt=""></img>
         </div>
-        <div class="card col">
+        <div class="--rank_card col">
          <div class="circle"></div>
         <div class="content">
          <h2>Dog</h2>
@@ -28,7 +28,7 @@ const HomeProduct = () => {
          </div>
          <img src="./imgs/cutekitten.png" alt=""></img>
         </div>
-        <div class="card col">
+        <div class="--rank_card col">
          <div class="circle"></div>
         <div class="content">
          <h2>Dog</h2>
@@ -40,7 +40,7 @@ const HomeProduct = () => {
         </div>
         </div>
         </div>
-        {/* <div className="cards">
+        {/* <div className="--rank_cards">
             <div className='card'>
             <img src='./product_image/product2.png' className='card-img-top' width={300}></img>
             <div class="card-body">

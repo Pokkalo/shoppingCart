@@ -8,7 +8,7 @@ import cuteCat from "./catanmation/Catinbox.json";
 const Title = () => {
   return (
     <div className="mainbg">
-    <section className='container'>
+    <section className='container title'>
         <div className='row align-items-center'>
             <div className='col maincolor'>
             Experience the joy of

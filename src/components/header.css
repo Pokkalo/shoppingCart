@@ -18,10 +18,6 @@ Nav, Navbar{
     justify-content: space-between;
 }
 
-.maincolor{
- color: #8b622e;
-}
-
 nav h1{
     font-size: 20px;
 }
@@ -29,9 +25,3 @@ nav h1{
 div h1{
     font-weight: 800;
 }
-
-.caroursel_picture{
-    width: 100%;
-    height: 600px;
-    object-fit: cover;
-  }

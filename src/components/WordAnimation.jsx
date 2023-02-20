@@ -5,7 +5,7 @@ const WordAnimation = () => {
   return (
     <section className="container wrapper">
 
-      <div className="words">
+      <div className="--animation-words">
         <span>Without the hassle!</span>
         <span>Furry joy on-demand.</span>
         <span>Without breaking the bank.</span>

@@ -14,13 +14,13 @@ section{
     overflow: hidden;
 }
 
-.words{
+.--animation-words{
     white-space: pre-line;
     overflow: hidden;
     
 }
 
-span{
+.--animation-words span{
     font-size: 35px;
     display: block;
     height: 100%;
@@ -67,29 +67,29 @@ span{
       opacity: 0;
     }
   }
-.words span{
+.--animation-words span{
     -webkit-background-clip: text;
     -moz-background-clip: text;
     background-clip: text;
     color: transparent;
 }
 
-.words span:nth-child(1) {
+.--animation-words span:nth-child(1) {
     background-image: linear-gradient(45deg, #0ecffe 50%, #07a6f1);
   }
 
-  .words span:nth-child(2) {
+  .--animation-words span:nth-child(2) {
     background-image: linear-gradient(45deg, #18e198 50%, #0ec15d);
   }
 
-  .words span:nth-child(3) {
+  .--animation-words span:nth-child(3) {
     background-image: linear-gradient(45deg, #8a7cfb 50%, #633e9c);
   }
 
-  .words span:nth-child(4) {
+  .--animation-words span:nth-child(4) {
     background-image: linear-gradient(45deg, #fa7671 50%, #f45f7f);
   }
 
-  .words span:nth-child(5) {
+  .--animation-words span:nth-child(5) {
     background-image: linear-gradient(45deg, #ff0099 50%, #493240);
   }
