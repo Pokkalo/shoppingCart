@@ -38,7 +38,7 @@
     background: snow;
     clip-path: circle(120px at center);
     border-radius: 20px;
-    transition: 0.5s;
+    transition: 0.9s;
   }
   .--rank_card:hover .circle::before{
     clip-path: circle(400px at center);
