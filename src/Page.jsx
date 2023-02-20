@@ -12,7 +12,8 @@ import ErrorPage from './pages/ErrorPage'
 import Home from './pages/Home'
 import Setting from './pages/Setting'
 import About from './pages/About'
-import Products from './pages/Products'
+
+import Borrow from './pages/Borrow'
 import Cart from './pages/Cart'
 import UserPage from './pages/UserPage'
 
@@ -38,7 +39,7 @@ const Page = () => {
           <Route path='/account/userpage' element={<UserPage />}></Route>
           <Route path='/setting/:username' element={<Setting/>}></Route>
           <Route path='/about' element={<About/>}></Route>
-          <Route path='/products' element={<Products/>}></Route>
+          <Route path='/borrow' element={<Borrow/>}></Route>
           <Route path='/cart' element={<Cart/>}></Route>
           <Route path='*' element={<ErrorPage/>}></Route>
       </Routes>

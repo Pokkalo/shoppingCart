@@ -1,8 +1,10 @@
 import React from 'react'
-
+import FadeCarousel from '../components/FadeCarousel'
 const About = () => {
   return (
-    <div className='--pageSpace'>About</div>
+    <div className='--pageSpace'>
+      <FadeCarousel/>
+      About</div>
   )
 }
 

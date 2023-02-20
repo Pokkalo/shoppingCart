@@ -17,7 +17,7 @@ const FadeCarousel = () => {
   <Carousel.Item>
     <img
       className="d-block caroursel_picture"
-      src="./imgs/elderly-couplewalk.jpg"
+      src="./imgs/kitten-asleep.jpg"
       alt="First slide"
     />
     <Carousel.Caption>
@@ -29,7 +29,7 @@ const FadeCarousel = () => {
   <Carousel.Item>
     <img
       className="d-block caroursel_picture"
-      src="./imgs/cycling.jpg"
+      src="./imgs/arthouse-studio.jpg"
       alt="Second slide"
     />
 
@@ -41,7 +41,7 @@ const FadeCarousel = () => {
   <Carousel.Item>
     <img
       className="d-block caroursel_picture"
-      src="./imgs/elderly-couplewalk2.jpg"
+      src="./imgs/maltese.jpg"
       alt="Third slide"
     />
 

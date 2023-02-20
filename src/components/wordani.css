@@ -21,10 +21,10 @@ section{
 }
 
 span{
-    font-size: 45px;
+    font-size: 35px;
     display: block;
     height: 100%;
-    padding-left: 10px;
+    /* padding-left: 10px; */
     /* border: 1px solid salmon; */
     
     animation: spin_words 6s infinite , fadeIn 3s ease-in-out infinite;

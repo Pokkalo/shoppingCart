@@ -28,24 +28,25 @@ const Header = () => {
 <Navbar expand="lg" style={{maxHeight: "300px"}} >
     <div className='container sticky-top'>
   <Navbar.Brand href="#">
+    <div className='logobox'>
   <img
-      className="d-block"
-      src="./imgs/logo.png" width={150}
-    />
 
+      src="./imgs/petLogo.png" width={60}
+    /><h1>PTPF</h1>
+</div>
   </Navbar.Brand>
   <Navbar.Toggle aria-controls="navbarScroll" />
   <Navbar.Collapse id="navbarScroll">
     <Nav
       
-      className="ml-auto pr-5 my-2 my-lg-0" 
-      navbarScroll
+      className="ml-auto pr-5 my-2 my-lg-0"
+      navbarScroll 
 
       hover
     >
       <Nav.Link href="/" className='px-4'><h1>Home</h1></Nav.Link>
       <Nav.Link href="/about" className='px-4'><h1>About</h1></Nav.Link>
-      <Nav.Link href="/products" className='px-4'><h1>Products</h1></Nav.Link>
+      <Nav.Link href="/borrow" className='px-4'><h1>Borrow</h1></Nav.Link>
       <Nav.Link href="/contact" className='px-4'><h1>Contact</h1></Nav.Link>
       {/* <NavDropdown title="Link" id="navbarScrollingDropdown">
         <NavDropdown.Item href="/setting">Setting</NavDropdown.Item>

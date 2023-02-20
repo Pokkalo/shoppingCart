@@ -1,17 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400&display=swap');
-
-*{
-    font-family: 'Tinos', serif;
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+div.logobox h1{
+    display: inline;
+    font-size: 30px;
+    color: #8b622e;
 }
 
 Nav, Navbar{
-    background-color: #d9cb80;
+    background-color: #fef7d1;
     font-family: 'Tinos', serif;
     font-size: 45px;
-    /* box-shadow: 0px 2px 20px #877c17; */
+    box-shadow: 0px 2px #f5cc86;
     
 }
 
@@ -22,7 +19,7 @@ Nav, Navbar{
 }
 
 .maincolor{
- color: #877c17;
+ color: #8b622e;
 }
 
 nav h1{
