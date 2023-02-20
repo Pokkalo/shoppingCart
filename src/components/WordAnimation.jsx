@@ -6,11 +6,12 @@ const WordAnimation = () => {
     <section className="container wrapper">
 
       <div className="words">
-        <span>Improved Well-Being.</span>
-        <span>a Better Life.</span>
-        <span>Optimal Senior Care.</span>
-        <span>Improve Quality of Life.</span>
-        <span>a Brighter Future.</span>
+        <span>Without the hassle!</span>
+        <span>Furry joy on-demand.</span>
+        <span>Without breaking the bank.</span>
+        <span>No-commitment pet love.</span>
+        <span>Share the pet love.</span>
+        
       </div>
     </section>
   );

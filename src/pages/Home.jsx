@@ -9,7 +9,7 @@ import HomeProduct from '../components/HomeProduct'
 const Home = () => {
   return (
     <div>
-      <FadeCarousel/>    
+     
       <Title/>
       <HomeProduct/>
     </div>
