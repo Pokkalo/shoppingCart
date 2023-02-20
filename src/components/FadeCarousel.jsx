@@ -16,7 +16,7 @@ const FadeCarousel = () => {
     <Carousel fade>
   <Carousel.Item>
     <img
-      className="d-block caroursel_picture"
+      className="d-block --caroursel_picture"
       src="./imgs/kitten-asleep.jpg"
       alt="First slide"
     />
