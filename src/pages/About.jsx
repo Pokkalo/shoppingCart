@@ -4,7 +4,7 @@ const About = () => {
   return (
     <div className='--pageSpace'>
       <FadeCarousel/>
-      About</div>
+      About1</div>
   )
 }
 
