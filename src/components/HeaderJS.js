@@ -6,6 +6,7 @@ import Navbar from 'react-bootstrap/Navbar'
 import Form from 'react-bootstrap/Form'
 import FormControl from 'react-bootstrap/FormControl'
 import Button from 'react-bootstrap/Button'
+import "bootstrap/dist/css/bootstrap.min.css"
 
 const HeaderJS = () => {
   return (
@@ -15,7 +16,7 @@ const HeaderJS = () => {
   <Navbar.Toggle aria-controls="navbarScroll" />
   <Navbar.Collapse id="navbarScroll">
     <Nav
-      className="mr-auto my-2 my-lg-0"
+      className="mr-auto my-2 my-lg-0 maincolor"
       style={{ maxHeight: '100px' }}
       navbarScroll
     >
