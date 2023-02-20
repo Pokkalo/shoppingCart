@@ -1,62 +1,124 @@
-import React from 'react'
+import React,{useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
+
 import { productInput } from '../data/DummyData'
-import { Form, Button,Card } from 'react-bootstrap'
-import {doc, setDoc} from 'firebase/firestore'
+import { useShoppingCart } from '../data/CartContent'
+import ProductItem from '../components/ProductItem'
+
+import { Alert, Container, Button } from 'react-bootstrap'
+
+
+import {doc, setDoc, collection, addDoc, updateDoc} from 'firebase/firestore'
+import { UserAuth } from '../data/UserData'
+import { db } from '../firebase-config'
+
 import {AiOutlineSearch} from 'react-icons/ai'
 
+
 const Products = () => {
+
+    const {user, logged} = UserAuth()
+    const [tempCart, setTempCart] = useState("")
+    
+    const [proData, setProData] = useState(productInput)
+    const [warningSign, setWarmingSign] = useState(false)
+
+    const {openCart, cartQuantity, cartItems} = useShoppingCart()
+
+    const nav = useNavigate()
+
+    useEffect(() => {
+
+    }, [proData])
+ 
+    function filterResult(e){
+        console.log(e.target.text)
+    }
+
+    const submitAll = ()=>{
+        const selectedItems = cartItems.map((data) => proData.find((pro) => (pro.id == data.id)))
+        setTempCart(selectedItems)
+        setWarmingSign(true)
+        
+    }
+
+    
+    const handleAdd = async() => {
+        console.log(tempCart.map((data) => (data)))
+        try {
+            await updateDoc(doc(collection(db, "user"), user.uid),{
+              shoppingCart: tempCart
+            })
+            setTempCart([])
+        } catch (error) {
+            console.log(error.message)
+        } finally{
+            console.log(user.uid)
+            // nav('../cart')
+        }
+        console.log(tempCart.map((data) => (data)))
+        setWarmingSign(false)
+    }
+
+    const test = async(e) =>{
+        e.preventDefault()
+        console.log(tempCart.map((data) => (data)))
+        try {
+            await updateDoc(doc(collection(db, "user"), user.uid),{
+              shoppingCart: tempCart
+            })
+            setTempCart([])
+            
+        } catch (error) {
+            console.log(error.message)
+        } finally{
+            console.log("Done")
+        }
+        console.log(tempCart.map((data) => (data)))
+    }
+
+    const object = (id) => {
+        const selectedProduct = proData.find((data) =>(data.id === parseInt(id)))
+        return selectedProduct
+    }
+
+
   return (
     <div className='--product-image_size'>
-      {/* <img src="./imgs/happy_elderly.png" alt="" className='w-100' ></img> */}
-      {/* <div className='d-flex flex-column justify-content-center align-items-center m-0 p-5 position-absolute'> */}
-      {/* <header class="section-header">
-        <section class="header-main border-bottom">
-            <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-2 col-4">
-                <a href="#" class="brand-wrap">
-                  Company Name
-                </a> 
-            </div>
-            <div class="col-lg-6 col-sm-12">
-                <form action="#" class="search">
-                    <div class="input-group w-100">
-                        <input type="text" class="form-control" placeholder="Search" />
-                        <div class="input-group-append">
-                          <button class="btn btn-primary" type="submit">
-                            <i class="fa fa-search"></i>
-                          </button>
-                        </div>
-                    </div>
-                </form> 
-            </div> 
-            <div class="col-lg-4 col-sm-6 col-12">
-                <div class="widgets-wrap float-md-right">
-                    <div class="widget-header  mr-3">
-                        <a href="#" class="icon icon-sm rounded-circle border"><i class="fa fa-shopping-cart"></i></a>
-                        <span class="badge badge-pill badge-danger notify">0</span>
-                    </div>
-                    <div class="widget-header icontext">
-                        <a href="#" class="icon icon-sm rounded-circle border"><i class="fa fa-user"></i></a>
-                        <div class="text">
-                            <span class="text-muted">Welcome!</span>
-                            <div> 
-                                <a href="#">Sign in</a> |  
-                                <a href="#"> Register</a>
-                            </div>
-                        </div>
-                    </div>
-                </div> 
-            </div> 
-        </div> 
-            </div> 
-        </section>
-        </header>  */}
-       
 
       
         <section class="section-content padding-y mt-3">
         <div class="container">
+
+        {warningSign? <Alert variant="primary" 
+        className='position-fixed --warnning_sign-styling col-10 col-sm-8 col-md-7 col-lg-6 ' style={{zIndex: "200"}}>
+            <Container className='h-50 col'>
+            <Alert.Heading className='text-center'>Are you ready to take them/it home?</Alert.Heading>
+            <p className='text-center'>
+                Please make sure you have prepared the suitable environment for your new member(s)
+            </p>
+            
+            </Container>
+            <hr className=''/>
+            <Container className="col ">
+                <div className='d-flex align-content-center justify-content-between my-0'>
+                    <Button className='w-50 align-content-center ml-1 mr-5' onClick={handleAdd}> Yes </Button>
+                    
+                    <Button className='w-50 align-content-center mr-1' onClick={()=> {setWarmingSign(false  )}}> No </Button>                    
+                </div>
+            </Container>
+        </Alert>: null}
+            
+            {/* <div className="bg-danger position-fixed --warnning_sign-styling d-flex flex-column justify-content-around align-content-center rounded" style={{zIndex: "200"}}>
+                <div className='text-center'>Are you ready to take them/it home?</div>
+
+                <div className='d-flex justify-content-around align-content-center'>
+                    <button className='w-25'> Yes </button>
+                    <button className='w-25'> No </button>                    
+                </div>
+
+                
+            </div> */}
         <div class="row">
             <aside class="col-md-3">
                 
@@ -64,7 +126,7 @@ const Products = () => {
             <article class="filter-group">
                 <header class="card-header">
                     <a href="#" data-toggle="collapse" data-target="#collapse_1" aria-expanded="true" class="">
-                        <i class="icon-control fa fa-chevron-down"></i>
+                        
                         <h6 class="title">Product type</h6>
                     </a>
                 </header>
@@ -74,7 +136,7 @@ const Products = () => {
                         <div class="input-group">
                           <input type="text" class="form-control" placeholder="Search" />
                           <div class="input-group-append">
-                            <button class="btn btn-light" type="button"><AiOutlineSearch/></button>
+                            <button class="btn btn-light border" type="button"><AiOutlineSearch/></button>
                           </div>
                         </div>
                         </form>
@@ -93,29 +155,17 @@ const Products = () => {
                     <div class="card-body">
                         <label class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" />
-                          <div class="custom-control-label">Apple
-                              <b class="badge badge-pill badge-light float-right">120</b>  </div>
+                          <div class="custom-control-label" onClick={filterResult} value="dog">Dog
+                              <b class="badge badge-pill badge-light float-right">
+                                {/* {proData.filter((data) => (data.category != "dog")).forEach(())} */}
+                                </b>  </div>
                         </label>
                         <label class="custom-control custom-checkbox">
                           <input type="checkbox" class="custom-control-input" />
-                          <div class="custom-control-label">Sa
+                          <div class="custom-control-label">Cat
                               <b class="badge badge-pill badge-light float-right">15</b>  </div>
                         </label>
-                        <label class="custom-control custom-checkbox">
-                          <input type="checkbox" class="custom-control-input" />
-                          <div class="custom-control-label">Mitsubishi 
-                              <b class="badge badge-pill badge-light float-right">35</b> </div>
-                        </label>
-                        <label class="custom-control custom-checkbox">
-                          <input type="checkbox" class="custom-control-input" />
-                          <div class="custom-control-label">Nissan 
-                              <b class="badge badge-pill badge-light float-right">89</b> </div>
-                        </label>
-                        <label class="custom-control custom-checkbox">
-                          <input type="checkbox" class="custom-control-input" />
-                          <div class="custom-control-label">Honda 
-                              <b class="badge badge-pill badge-light float-right">30</b>  </div>
-                        </label>
+                        
             </div> 
                 </div>
             </article> 
@@ -123,24 +173,17 @@ const Products = () => {
                 <header class="card-header">
                     <a href="#" data-toggle="collapse" data-target="#collapse_3" aria-expanded="true" class="">
                         <i class="icon-control fa fa-chevron-down"></i>
-                        <h6 class="title">Price range </h6>
+                        <h6 class="title">Selected list {cartQuantity > 0 && <span>({cartQuantity} in your Cart)</span>} </h6>
                     </a>
                 </header>
                 <div class="filter-content collapse show" id="collapse_3">
-                    <div class="card-body">
-                        <input type="range" class="custom-range" min="0" max="100" name="" />
-                        <div class="form-row">
-                        <div class="form-group col-md-6">
-                          <label>Min</label>
-                          <input class="form-control" placeholder="$0" type="number" />
-                        </div>
-                        <div class="form-group text-right col-md-6">
-                          <label>Max</label>
-                          <input class="form-control" placeholder="$1,0000" type="number" />
-                        </div>
-                        </div> 
-                        <button class="btn btn-block btn-primary">Apply</button>
-                    </div>
+                    {cartQuantity>0 ? <div class="card-body">
+                        {cartItems.map((data) => <div className='d-flex justify-content-between my-3'> 
+                        <div>{proData.find((pro) => (pro.id == data.id)).title}</div>
+                        <div>{proData.find((pro) => (pro.id == data.id)).breed}</div> 
+                        </div> )}
+                        <button class="btn btn-block btn-primary" onClick={submitAll}>Confirm all</button>
+                    </div> : <div className='d-flex justify-content-center align-items-center' style={{height: "100px"}}>Nothing selected</div>  }
                 </div>
             </article> 
             <article class="filter-group">
@@ -219,58 +262,15 @@ const Products = () => {
                     </div>
                 </div>
         </header>
+
         <div class="row">
-            {/* <div class="col-md-4">
-                <figure class="card card-product-grid">
-                    <div class="img-wrap"> 
-                        <span class="badge badge-danger"> NEW </span>
-                        <img src="assets/images/items/1.jpg" />
-                        <a class="btn-overlay" href="#"><i class="fa fa-search-plus"></i> Quick view</a>
-                    </div> 
-                    <figcaption class="info-wrap">
-                        <div class="fix-height">
-                            <a href="#" class="title">Great item name goes here</a>
-                            <div class="price-wrap mt-2">
-                                <span class="price">$1280</span>
-                                <del class="price-old">$1980</del>
-                            </div>
-                        </div>
-                        <a href="#" class="btn btn-block btn-primary">Add to cart </a>
-                    </figcaption>
-                </figure>
-            </div>  */}
+            
             <div className="card-columns">
             {productInput.map((data) => (
-                <Card style={{ width: '18rem' }} className="card">
-                <Card.Img variant="top" src={data.images[0]} />
-                <Card.Body>
-                  <Card.Title>{data.title}</Card.Title>
-                  <Card.Text>
-                    {data.description}
-                  </Card.Text>
-                  <Button variant="primary">Go somewhere</Button>
-                </Card.Body>
-              </Card>
-            // <div class="col-md-4">
-            //     <figure class="card card-product-grid">
-            //         <div class="img-wrap"> 
-            //             <img src={data.images[0]} className="w-100"/>
-            //             <a class="btn-overlay" href="#"><i class="fa fa-search-plus"></i> Quick view</a>
-            //         </div>
-            //         <figcaption class="info-wrap">
-            //             <div class="fix-height">
-            //                 <a href="#" class="title">{data.title}</a>
-            //                 <div class="price-wrap mt-2">
-            //                     <span class="price">{data.price}</span>
-            //                 </div> 
-            //             </div>
-            //             <a href="#" class="btn btn-block btn-primary">Add to cart </a>  
-            //         </figcaption>
-            //     </figure>
-            // </div>
+                <ProductItem {...data} />
             ))} 
             </div>
-           
+            
         </div> 
         <nav class="mt-4" aria-label="Page navigation sample">
           <ul class="pagination">

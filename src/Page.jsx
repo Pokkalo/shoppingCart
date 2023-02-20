@@ -16,7 +16,7 @@ import Cart from './pages/Cart'
 import UserPage from './pages/UserPage'
 
 import { AuthContextProvider } from './data/UserData'
-
+import { ShoppingCartProvider } from './data/CartContent'
 
 import { useState } from 'react'
 
@@ -35,6 +35,7 @@ const Page = () => {
         <NavLink to='/setting'>Setting</NavLink>
       </nav> */}
       <AuthContextProvider >
+        <ShoppingCartProvider>
       <Header/>
       <Routes>
           <Route path='/' element={<Home/>}></Route>
@@ -47,6 +48,7 @@ const Page = () => {
           <Route path='/cart' element={<Cart/>}></Route>
           <Route path='*' element={<ErrorPage/>}></Route>
       </Routes>
+      </ShoppingCartProvider>
       <Footer/>
       </AuthContextProvider>
     </Router>
