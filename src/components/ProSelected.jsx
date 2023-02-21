@@ -1,11 +1,11 @@
 import React,{useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useSearchParams, createSearchParams } from 'react-router-dom'
 
 import { productInput } from '../data/DummyData'
 import { useShoppingCart } from '../data/CartContent'
 import ProductItem from '../components/ProductItem'
 
-import { Alert, Container, Button } from 'react-bootstrap'
+import { Alert, Container, Button, Form, InputGroup } from 'react-bootstrap'
 
 
 import {doc, setDoc, collection, addDoc, updateDoc} from 'firebase/firestore'
@@ -13,17 +13,45 @@ import { UserAuth } from '../data/UserData'
 import { db } from '../firebase-config'
 
 import {AiOutlineSearch} from 'react-icons/ai'
+import { Radio } from 'semantic-ui-react'
 
 
-const Products = () => {
-
+const ProSelected = () => {
     const {user, logged} = UserAuth()
     const [tempCart, setTempCart] = useState("")
     
     const [proData, setProData] = useState(productInput)
     const [warningSign, setWarmingSign] = useState(false)
+    
+    const [search, setSearch] = useState("")
+
+    const [searchParams, setSearchParams] = useSearchParams();
+    const [searchRadio, setSearchRadio] = useState("")
 
     const {openCart, cartQuantity, cartItems} = useShoppingCart()
+
+    const clickBoxes = [
+        {
+            id: 0,
+            category: "All",
+            search: ""
+        },
+        {
+            id: 1,
+            category: "Cat",
+            search: "cat"
+        },
+        {
+            id: 2,
+            category: "Dog", 
+            search: "dog"
+        },
+        {
+            id: 3,
+            category: "Other",
+            search: "other"
+        }
+    ]
 
     const nav = useNavigate()
 
@@ -31,9 +59,6 @@ const Products = () => {
 
     }, [proData])
  
-    function filterResult(e){
-        console.log(e.target.text)
-    }
 
     const submitAll = ()=>{
         const selectedItems = cartItems.map((data) => proData.find((pro) => (pro.id == data.id)))
@@ -61,10 +86,26 @@ const Products = () => {
     }
 
     const test = async(e) =>{
-
+        e.preventDefault()
+        console.log(tempCart.map((data) => (data)))
+        try {
+            await updateDoc(doc(collection(db, "user"), user.uid),{
+              shoppingCart: tempCart
+            })
+            setTempCart([])
+            
+        } catch (error) {
+            console.log(error.message)
+        } finally{
+            console.log("Done")
+        }
+        console.log(tempCart.map((data) => (data)))
     }
 
-
+    const object = (id) => {
+        const selectedProduct = proData.find((data) =>(data.id === parseInt(id)))
+        return selectedProduct
+    }
 
 
   return (
@@ -88,7 +129,7 @@ const Products = () => {
                 <div className='d-flex align-content-center justify-content-between my-0'>
                     <Button className='w-50 align-content-center ml-1 mr-5' onClick={handleAdd}> Yes </Button>
                     
-                    <Button className='w-50 align-content-center mr-1' onClick={()=> {setWarmingSign(false  )}}> No </Button>                    
+                    <Button className='w-50 align-content-center mr-1' onClick={()=> {setWarmingSign(false)}}> No </Button>                    
                 </div>
             </Container>
         </Alert>: null}
@@ -111,19 +152,35 @@ const Products = () => {
                 <header class="card-header">
                     <a href="#" data-toggle="collapse" data-target="#collapse_1" aria-expanded="true" class="">
                         
-                        <h6 class="title">Product type</h6>
+                        <h6 class="title">Breed search</h6>
                     </a>
                 </header>
                 <div class="filter-content collapse show" id="collapse_1">
                     <div class="card-body">
-                        <form class="pb-3">
+                    <Form>
+                        <InputGroup className='my-3'>
+
+                            {/* onChange for search */}
+                            <Form.Control
+                            onChange={(e) => {
+                                setSearch(e.target.value);
+                                
+                                
+                            }}
+                            placeholder='Search contacts'
+                            />
+                        </InputGroup>
+                    </Form>
+
+                        
+                        {/* <form class="pb-3">
                         <div class="input-group">
                           <input type="text" class="form-control" placeholder="Search" />
                           <div class="input-group-append">
                             <button class="btn btn-light border" type="button"><AiOutlineSearch/></button>
                           </div>
                         </div>
-                        </form>
+                        </form> */}
 
                     </div> 
                 </div>
@@ -132,24 +189,31 @@ const Products = () => {
                 <header class="card-header">
                     <a href="#" data-toggle="collapse" data-target="#collapse_2" aria-expanded="true" class="">
                         <i class="icon-control fa fa-chevron-down"></i>
-                        <h6 class="title">Brands </h6>
+                        <h6 class="title">{searchRadio}</h6>
                     </a>
                 </header>
                 <div class="filter-content collapse show" id="collapse_2">
                     <div class="card-body">
-                        <label class="custom-control custom-checkbox">
-                          <input type="checkbox" class="custom-control-input" />
-                          <div class="custom-control-label" onClick={filterResult} value="dog">Dog
-                              <b class="badge badge-pill badge-light float-right">
-                                {/* {proData.filter((data) => (data.category != "dog")).forEach(())} */}
-                                </b>  </div>
-                        </label>
-                        <label class="custom-control custom-checkbox">
-                          <input type="checkbox" class="custom-control-input" />
-                          <div class="custom-control-label">Cat
-                              <b class="badge badge-pill badge-light float-right">15</b>  </div>
-                        </label>
+                    {clickBoxes.map((item)=>(
+                       <Form.Check 
+                       type="radio"
+                       id={item.id}
+                       value={item.search}
+                       label={item.category}
+                       name="group1"
+                       onClick={(e)=>{
+                            setSearchRadio(e.target.getAttribute("value"))
+                        }}
                         
+                   />
+                        ))
+                    }
+                        {/* onClick={(e)=>{
+                                    console.log(e.target.checked)
+                                    console.log(e.target.getAttribute("value"))
+                                }
+                                    }
+                                    checked={clickedBox === item } */}
             </div> 
                 </div>
             </article> 
@@ -157,7 +221,7 @@ const Products = () => {
                 <header class="card-header">
                     <a href="#" data-toggle="collapse" data-target="#collapse_3" aria-expanded="true" class="">
                         <i class="icon-control fa fa-chevron-down"></i>
-                        <h6 class="title">Selected list {cartQuantity > 0 && <span>({cartQuantity} in your Cart)</span>} </h6>
+                        <h6 class="title">Selected list {cartQuantity > 0 && <span>({cartQuantity} in your List)</span>} </h6>
                     </a>
                 </header>
                 <div class="filter-content collapse show" id="collapse_3">
@@ -250,18 +314,28 @@ const Products = () => {
         <div class="row">
             
             <div className="card-columns">
-            {productInput.map((data) => (
+            {productInput.filter((item) => {
+                return search.toLocaleLowerCase() === ""?
+                item:
+                item.breed.toLowerCase().includes(search.toLowerCase())
+            })
+            .filter((item)=>{
+                return searchRadio.toLowerCase() === ""?
+                item:
+                item.category.toLowerCase().includes(searchRadio.toLowerCase())
+            })
+            .map((data) => (
                 <ProductItem {...data} />
             ))} 
             </div>
             
         </div> 
-        <nav class="mt-4" aria-label="Page navigation sample">
-          <ul class="pagination">
+        <nav class="mt-4 " aria-label="Page navigation sample" >
+          <ul class="pagination bg-light">
             <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
-            <li class="page-item active"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item active"><a class="page-link">1</a></li>
+            {/* <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li> */}
             <li class="page-item"><a class="page-link" href="#">Next</a></li>
           </ul>
         </nav>
@@ -270,19 +344,8 @@ const Products = () => {
         </div> 
         </section>
         
-        <footer class="section-footer border-top padding-y">
-            <div class="container">
-                <p class="float-md-right"> 
-                    &copy; Copyright 2021 All rights reserved
-                </p>
-                <p>
-                    <a href="#">Terms and conditions</a>
-                </p>
-            </div>
-        </footer>
       </div>
-    // </div>
   )
-} 
+}
 
-export default Products
+export default ProSelected

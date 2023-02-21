@@ -97,7 +97,7 @@ export const productInput = [
     title: "Jelly",
     age: 1,
     weight: 7,
-    breed: "American Bobtail Cat Breed",
+    breed: "Bobtail Cat Breed",
     category: "Cat",
     thumbnail: "./img/007_1.jpg",
     images: [
