@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from 'react'
 import { NavLink } from 'react-router-dom'
 import "bootstrap/dist/css/bootstrap.min.css"
 
@@ -10,6 +10,7 @@ import { faFacebook, faTwitter, faInstagram, faWhatsapp } from '@fortawesome/fre
 
 
 const Footer = () => {
+  
   return (
     
     <footer className="border-top text-light bg-dark sticky-bottom">
