@@ -1,17 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400&display=swap');
-.mainbg{
-    background-color: #fef7d1;
-}
-section{
+section.title{
     /* background-color: antiquewhite; */
     padding-top: 20px;
 }
 
-section div{
+section.title div{
 font-size: 35px;
 font-weight: 800;
 }
-
+/*
 section div img{
     animation: ani_img 3s , fadeIn 3.5s ease-out ;
     animation-iteration-count:1;
@@ -37,3 +34,4 @@ section div img{
       opacity: 1;
     }
   }
+*/

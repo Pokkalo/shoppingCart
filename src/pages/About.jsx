@@ -5,6 +5,7 @@ const About = () => {
     <div className='--pageSpace'>
       <FadeCarousel/>
       About1</div>
+
   )
 }
 
