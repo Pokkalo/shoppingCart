@@ -84,36 +84,41 @@ const Account = () => {
 
   return (
     
-    <div className=' --screen-size --pageSpace d-flex flex-column justify-content-center align-items-center '>
-      <img src="./imgs/happy_elderly.png" className='--account-image_style w-100' alt="" />
+    <div className=' --screen-size --pageSpace d-flex flex-column justify-content-center align-items-center mainbg'>
+      {/* <img src="./imgs/arthouse-studio.jpg" className='--account-image_style w-100' alt="" /> */}
       {user? null : 
-      <div className='jumbotron d-flex flex-column justify-content-center align-items-center m-0 p-5 position-absolute'>
-     {createState? <h2>New Account Created!</h2> :<h2>Please login your account</h2>}
+      <div className='d-flex flex-column justify-content-center  m-0 p-5 login-box'>
+     {createState? <h2>New Account Created!</h2> :<h2>Login</h2>}
       <hr className=''/>
       
       <Form >
-        <Form.Group controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
-          <Form.Control type="email" placeholder="Enter email" onChange={(event) => {
+        <Form.Group controlId="formBasicEmail" className='user-box'>     
+          <Form.Control type="email" className='boxinput' onChange={(event) => {
             setLoginEmail(event.target.value);
           }}/> 
+          <Form.Label className='user-boxlabel'>Email address</Form.Label>
           <Form.Text className="text-muted">
             {errorMess === "" ?  "We'll never share your email with anyone else.": errorMess}
           </Form.Text>
         </Form.Group>
 
-        <Form.Group controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
-          <Form.Control type="password" placeholder="Password" onChange={(event) => {
+        <Form.Group controlId="formBasicPassword" className='user-box'>
+          
+          <Form.Control type="password" className='boxinput' onChange={(event) => {
             setLoginPassword(event.target.value);
           }}/>
+          <Form.Label className='user-boxlabel'>Password</Form.Label>
         </Form.Group>
-        <Form.Group controlId="formBasicCheckbox">
+        <Form.Group controlId="formBasicCheckbox" className='maincolor'>
           <Form.Check type="checkbox" label="Check me out" />
         </Form.Group>
 
         <Form.Group className='d-flex flex-row justify-content-between mt-3'>
-        <Button variant="dark" type="submit" onClick={handleLogin}>
+        <Button className='user-box-btn' variant="transparent" type="submit" onClick={handleLogin}>
+        <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
           Submit
         </Button>
         <Button variant="dark" type="submit" className=''
