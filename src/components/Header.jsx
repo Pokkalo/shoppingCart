@@ -60,8 +60,14 @@ const Header = () => {
       </Nav.Link>*/}
     </Nav>
       <Nav className='d-flex flex-row'>
-        <Nav.Link variant='dark' href='/setting' className='d-none d-lg-flex'><BsFillGearFill/></Nav.Link>
-        <Nav.Link variant='dark' href='/account' className='d-none d-lg-flex'><BsPersonCircle/></Nav.Link>
+      <Nav.Link variant='dark' href='/cart' className='d-none d-lg-flex'>
+        <img src="./icons/cart.svg" className='icons' alt="Cart" />
+          <BsFillGearFill/></Nav.Link>
+        <Nav.Link variant='dark' href='' className='d-none d-lg-flex'>
+        <img src="./icons/setting.svg" className='icons' alt="Settings" />
+          <BsFillGearFill/></Nav.Link>
+        <Nav.Link variant='dark' href='/account' className='d-none d-lg-flex'>
+        <img src="./icons/user.svg" className='icons' alt="Users" /></Nav.Link>
       </Nav>
     {/* <Form className="d-flex">
       <FormControl
