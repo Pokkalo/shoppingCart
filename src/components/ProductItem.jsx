@@ -10,7 +10,10 @@ const ProductItem = ({
     breed,
     category,
     thumbnail,
-    images
+    images,
+    description,
+    gender,
+    price
 }) => {
     const {
         getItemQuantity,

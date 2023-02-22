@@ -39,6 +39,7 @@ const Products = () => {
         const selectedItems = cartItems.map((data) => proData.find((pro) => (pro.id == data.id)))
         setTempCart(selectedItems)
         setWarmingSign(true)
+        console.log(cartItems)
         
     }
 

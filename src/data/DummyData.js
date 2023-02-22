@@ -91,6 +91,7 @@ export const productInput = [
     ],
     description: "Polly has good mannered,love kids and elderlies",
     gender: "F",
+    price: 100,
 },
 {
     id: 7,
@@ -101,10 +102,11 @@ export const productInput = [
     category: "Cat",
     thumbnail: "./img/007_1.jpg",
     images: [
-    "./imgs/007_1.png",
+    "./imgs/007_1.jpg",
     ],
     description: "Jelly is outgoing, decent and behaved",
     gender: "M",
+    price: 100,
 },
 {
     id: 8,
@@ -122,6 +124,7 @@ export const productInput = [
     ],
     description: "Rocky loves going for a walk and playing with balls",
     gender: "F",
+    price: 100,
 },
 {
     id: 9,
@@ -138,6 +141,7 @@ export const productInput = [
     ],
     description: "Coco is quiet and considerate",
     gender: "F",
+    price: 100,
 },
 {
     id: 10,
@@ -155,6 +159,7 @@ export const productInput = [
     ],
     description: "Pudding loves playing with human",
     gender: "M",
+    price: 100,
 },
 {
     id: 11,
@@ -171,6 +176,7 @@ export const productInput = [
     ],
     description: "Baby has a cute face and tidy",
     gender: "F",
+    price: 100,
 },
 {
     id: 12,
@@ -188,6 +194,7 @@ export const productInput = [
     ],
     description: "Lucky is an extrovert, who is obedient and love human",
     gender: "F",
+    price: 100,
 },
 {
     id: 13,
@@ -203,6 +210,7 @@ export const productInput = [
     ],
     description: "Sneaky is always calm and obedient",
     gender: "F",
+    price: 100,
 },{
     id: 14,
     title: "Dodo",
@@ -219,6 +227,7 @@ export const productInput = [
     ],
     description: "Dodo is a friendly and obedient hamster",
     gender: "M",
+    price: 100,
 }
 
 

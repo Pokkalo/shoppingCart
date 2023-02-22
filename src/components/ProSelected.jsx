@@ -27,10 +27,11 @@ const ProSelected = () => {
 
     const [searchParams, setSearchParams] = useSearchParams();
     const [searchRadio, setSearchRadio] = useState("")
+    const [searchGender, setSearchGender] = useState("")
 
     const {openCart, cartQuantity, cartItems} = useShoppingCart()
 
-    const clickBoxes = [
+    const clickBoxesForCate = [
         {
             id: 0,
             category: "All",
@@ -50,7 +51,25 @@ const ProSelected = () => {
             id: 3,
             category: "Other",
             search: "other"
-        }
+        },
+    ]
+
+    const clickBoxesForGender = [
+        {
+            id: 4,
+            gender: "All", 
+            search: ""
+        },
+        {
+            id: 5,
+            gender: "Male", 
+            search: "M"
+        },
+        {
+            id: 6,
+            gender: "Female", 
+            search: "F"
+        },
     ]
 
     const nav = useNavigate()
@@ -64,6 +83,8 @@ const ProSelected = () => {
         const selectedItems = cartItems.map((data) => proData.find((pro) => (pro.id == data.id)))
         setTempCart(selectedItems)
         setWarmingSign(true)
+        console.log(selectedItems)
+        console.log(cartItems)
         
     }
 
@@ -189,12 +210,12 @@ const ProSelected = () => {
                 <header class="card-header">
                     <a href="#" data-toggle="collapse" data-target="#collapse_2" aria-expanded="true" class="">
                         <i class="icon-control fa fa-chevron-down"></i>
-                        <h6 class="title">{searchRadio}</h6>
+                        <h6 class="title">Filter</h6>
                     </a>
                 </header>
                 <div class="filter-content collapse show" id="collapse_2">
                     <div class="card-body">
-                    {clickBoxes.map((item)=>(
+                    {clickBoxesForCate.map((item)=>(
                        <Form.Check 
                        type="radio"
                        id={item.id}
@@ -203,11 +224,25 @@ const ProSelected = () => {
                        name="group1"
                        onClick={(e)=>{
                             setSearchRadio(e.target.getAttribute("value"))
-                        }}
-                        
-                   />
-                        ))
-                    }
+                        }}/>
+                        ))}
+
+                        <br />
+                    {clickBoxesForGender.map((item)=>(
+                       <Form.Check 
+                       type="radio"
+                       id={item.id}
+                       value={item.search}
+                       label={item.gender}
+                       name="group2"
+                       onClick={(e)=>{
+                            setSearchGender(e.target.getAttribute("value"))
+                        }}/>
+                        ))}
+
+
+
+
                         {/* onClick={(e)=>{
                                     console.log(e.target.checked)
                                     console.log(e.target.getAttribute("value"))
@@ -323,6 +358,11 @@ const ProSelected = () => {
                 return searchRadio.toLowerCase() === ""?
                 item:
                 item.category.toLowerCase().includes(searchRadio.toLowerCase())
+            })
+            .filter((item)=>{
+                return searchGender.toLowerCase() === ""?
+                item:
+                item.gender.toLowerCase().includes(searchGender.toLowerCase())
             })
             .map((data) => (
                 <ProductItem {...data} />

@@ -21,6 +21,7 @@ const Cart = () => {
   const inputValue = useRef(null)
   const [proData, setProData] = useState(productInput)
   const [cartData, setCartData] = useState([])
+  const [cartQua, setCartQua] = useState()
   const [state, setState] = useState(false)
 
   const userRef = collection(db, "user")
@@ -28,11 +29,13 @@ const Cart = () => {
 
   const nav = useNavigate()
 
-  const {getItemQuantity,increaseCartQuantity, decreaseCartQuantity, removeFromCart } = useShoppingCart()
-  const quantity = getItemQuantity()
+  const {getItemQuantity,increaseCartQuantity, decreaseCartQuantity, updateCartItems, setCartQuantity, removeFromCart, cartItems, cartQuantity } = useShoppingCart()
+
 
   useEffect(() => {
     setCartData([])
+    
+    
     const fetchData = async() =>{
     const data = await getDocs(userRef, user.uid)
     let cart = []
@@ -42,15 +45,27 @@ const Cart = () => {
     setCartData(cart.find((data)=> data.id === user.uid).shoppingCart)
     console.log(cart.find((data)=> data.id === user.uid).shoppingCart)
     console.log(cart)
+
+    updateCartItems(cart.find((data)=> data.id === user.uid).shoppingCart.map((item) =>{
+      const id = item.id
+      return {id: id, quantity: 1}}
+      ))
+    setCartQua(cart.find((data)=> data.id === user.uid).shoppingCart.map((item) =>{
+      const id = item.id
+      return {id: id, quantity: 1}}
+      ))
   }
 
     try {
       fetchData()
+      console.log(cartQua)
     } catch (error) {
       console.log(error.message)
       setState(false)
-    }   
-  },[logged])
+    } finally{
+      
+    }
+  },[logged,])
 
   const removeItem = async(id) =>{
     const newData = cartData.filter((_, data) => data !== id)
@@ -71,7 +86,7 @@ const Cart = () => {
   }
 
   const testing = () =>{
-    console.log(user.uid)
+    console.log(cartItems.find((i) => i.id > 1))
     
   }
 
@@ -145,8 +160,11 @@ const Cart = () => {
               <input type="number" 
               class="form-control form-control-lg text-center"  
               placeholder='1'
-
+              min={1}
               ref={inputValue}
+              onChange={(e) => 
+                
+                setCartQuantity(e, data.id)}
               />
           </td>
           <td class="actions" data-th="">
@@ -168,7 +186,10 @@ const Cart = () => {
             
             <div class="float-right text-right">
                 <h4>Subtotal:</h4>
-                <h1>$99.00</h1>
+                <h1>{cartData.reduce((tot, item) =>{
+                  const qua = cartItems.find((i) => i.id == item.id).quantity
+                  return (tot + item.price*qua)}
+                  ,0)}</h1>
                 <button onClick={testing}>Button</button>
             </div>
         </div>

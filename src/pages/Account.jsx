@@ -88,7 +88,7 @@ const Account = () => {
       <img src="./imgs/happy_elderly.png" className='--account-image_style w-100' alt="" />
       {user? null : 
       <div className='jumbotron d-flex flex-column justify-content-center align-items-center m-0 p-5 position-absolute'>
-     {createState? <h2>New Account Created!</h2> :<h2>Please login your account</h2>}
+      <h2>Please login your account</h2>
       <hr className=''/>
       
       <Form >
@@ -127,7 +127,7 @@ const Account = () => {
       </div>
       }
 
-      {user? <div className='jumbotron d-flex flex-column justify-content-center align-items-center m-0 p-5 position-absolute --login-hidden-element'>
+      {user && createState === false? <div className='jumbotron d-flex flex-column justify-content-center align-items-center m-0 p-5 position-absolute --login-hidden-element'>
       <h2>Welcome back!! <br /> {user.email}</h2>
       <hr className=''/>
       
@@ -144,6 +144,24 @@ const Account = () => {
         <Button variant="dark" type="submit" onClick={printing}>
           console
         </Button>
+      </Form>
+      </div> : null}
+
+      {createState? <div className='jumbotron d-flex flex-column justify-content-center align-items-center m-0 p-5 position-absolute --login-hidden-element'>
+      <h2>Account below is Created!!<br /> {user.email}</h2>
+      <hr className=''/>
+      
+      <Form >
+        <Form.Group controlId="formBasicEmail">
+          <Form.Text className="">
+            <h2>{userData.email}</h2>
+          </Form.Text>
+        </Form.Group>
+
+        <Button variant="dark" type="submit" onClick={()=> {setCreateState(false)}}>
+          Close
+        </Button>
+        
       </Form>
       </div> : null}
     </div>

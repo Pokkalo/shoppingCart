@@ -52,6 +52,22 @@ export function ShoppingCartProvider({children}){
             }
         })
     }
+    function updateCartItems(value){
+        setCartItems(value);
+    }
+    function setCartQuantity(e, id){
+        setCartItems(currItems => {
+            return currItems.map(item => {
+                if(item.id === id){
+                    console.log(e.target.value)
+                    return {...item, quantity: e.target.value}
+                }else{
+                    return item
+                }
+            })
+        })
+    }
+
     function removeFromCart(id){
         setCartItems(currItems => {
             return currItems.filter(item => item.id !== id)
@@ -63,7 +79,7 @@ export function ShoppingCartProvider({children}){
     )
     return (
         <ShoppingCartContext.Provider 
-        value={{ getItemQuantity, increaseCartQuantity, decreaseCartQuantity, removeFromCart, 
+        value={{ getItemQuantity, increaseCartQuantity, decreaseCartQuantity, setCartQuantity, updateCartItems, removeFromCart, 
         openCart, closeCart,
         cartItems, cartQuantity}}>
             {children}
