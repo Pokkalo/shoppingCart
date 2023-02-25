@@ -153,13 +153,13 @@
   display: inline-block;
   padding: 10px 20px;
   color: #8b622e;
-  font-size: 16px;
+  font-size: 14px;
   text-decoration: none;
   text-transform: uppercase;
   overflow: hidden;
   transition: .5s;
   margin-top: 40px;
-  letter-spacing: 4px
+  letter-spacing: 2px
 }
 
 .login-box .user-box-btn:hover {
@@ -265,4 +265,61 @@
 .--about-ciclefit:hover {
   opacity:1;
   transition: 0.5s ease;
+}
+
+.allbtn {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 14px;
+  text-decoration: none;
+  text-transform: uppercase;
+  margin-top: 40px;
+  letter-spacing: 2px;
+  color: #8b622e;
+ border: 1px solid #8b622e;
+ border-radius: 5px;
+ margin: 5px;
+ background-color: transparent;
+}
+
+.allbtn:hover {
+  background: #8b622e;
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #8b622e,
+              0 0 25px #8b622e,
+              0 0 50px #8b622e,
+              0 0 100px #8b622e;
+}
+
+.login-box .allbtn {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 14px;
+  text-decoration: none;
+  text-transform: uppercase;
+  margin-top: 40px;
+  letter-spacing: 2px;
+  color: #8b622e;
+ border: 2px solid #8b622e;
+ border-radius: 5px;
+ margin: 5px;
+ background-color: transparent;
+}
+
+.login-box .allbtn:hover {
+  background: #8b622e;
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #8b622e,
+              0 0 25px #8b622e,
+              0 0 50px #8b622e,
+              0 0 100px #8b622e;
+}
+
+
+
+.login-box .login-useremail{
+  color: peru;
+  letter-spacing: 2px;
 }

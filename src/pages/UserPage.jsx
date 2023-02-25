@@ -21,9 +21,8 @@ const UserPage = () => {
   };
 
   return (
-    <div className=' --screen-size --pageSpace d-flex flex-column justify-content-center align-items-center '>
-    <img src="./imgs/happy_elderly.png" className='--account-image_style w-100' alt="" />
-    <div className='jumbotron d-flex flex-column justify-content-center align-items-center m-0 p-5 position-absolute'>
+    <div className=' --screen-size --pageSpace d-flex flex-column justify-content-center align-items-center mainbg'>
+    <div className='login-box d-flex flex-column justify-content-center align-items-center m-0 p-5 position-absolute'>
     <hr className=''/>
     
     <h2>Please wait...</h2>

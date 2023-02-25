@@ -97,9 +97,7 @@ const Account = () => {
             setLoginEmail(event.target.value);
           }}/> 
           <Form.Label className='user-boxlabel'>Email address</Form.Label>
-          <Form.Text className="text-muted">
-            {errorMess === "" ?  "We'll never share your email with anyone else.": errorMess}
-          </Form.Text>
+          
         </Form.Group>
 
         <Form.Group controlId="formBasicPassword" className='user-box'>
@@ -111,6 +109,9 @@ const Account = () => {
         </Form.Group>
         <Form.Group controlId="formBasicCheckbox" className='maincolor'>
           <Form.Check type="checkbox" label="Check me out" />
+          <Form.Text className="text-muted">
+            {errorMess === "" ?  "We'll never share your email with anyone else.": errorMess}
+          </Form.Text>
         </Form.Group>
 
         <Form.Group className='d-flex flex-row justify-content-between mt-3'>
@@ -121,9 +122,13 @@ const Account = () => {
       <span></span>
           Submit
         </Button>
-        <Button variant="dark" type="submit" className=''
+        <Button className='user-box-btn' variant="transparent" type="submit"
          onClick={handleCreate}
          >
+          <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
           Create account
         </Button>
         </Form.Group>
@@ -132,8 +137,8 @@ const Account = () => {
       </div>
       }
 
-      {user && createState === false? <div className='jumbotron d-flex flex-column justify-content-center align-items-center m-0 p-5 position-absolute --login-hidden-element'>
-      <h2>Welcome back!! <br /> {user.email}</h2>
+      {user && createState === false? <div className='login-box d-flex flex-column justify-content-center align-items-center m-0 p-5 position-absolute --login-hidden-element'>
+      <h2>Welcome back!!</h2><p className='login-useremail'>{user.email}</p>
       <hr className=''/>
       
       <Form >
@@ -143,10 +148,10 @@ const Account = () => {
           </Form.Text>
         </Form.Group>
 
-        <Button variant="dark" type="submit" onClick={handleSignOut}>
+        <Button className='allbtn' variant="transparent" type="submit" onClick={handleSignOut}>
           Logout
         </Button>
-        <Button variant="dark" type="submit" onClick={printing}>
+        <Button className='allbtn' variant="transparent" type="submit" onClick={printing}>
           console
         </Button>
       </Form>

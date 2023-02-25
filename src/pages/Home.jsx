@@ -5,6 +5,7 @@ import JumbotJSX from '../components/JumbotJSX'
 import WordAnimation from '../components/WordAnimation'
 import Title from '../components/Title'
 import HomeProduct from '../components/HomeProduct'
+import ContactCard from '../components/ContactCard'
 
 const Home = () => {
   return (
@@ -12,6 +13,7 @@ const Home = () => {
      
       <Title/>
       <HomeProduct/>
+      <ContactCard/>
     </div>
   )
 }
