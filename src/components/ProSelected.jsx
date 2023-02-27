@@ -142,15 +142,15 @@ const ProSelected = () => {
 
 
   return (
-    <div className='--product-image_size'>
+    <div className='--product-image_size mainbg'>
 
       
-        <section class="section-content padding-y mt-3">
-        <div class="container">
+        <section class="section-content padding-y pt-5">
+        <div class="container pb-5">
 
-        {warningSign? <Alert variant="primary" 
-        className='position-fixed --warnning_sign-styling col-10 col-sm-8 col-md-7 col-lg-6 ' style={{zIndex: "200"}}>
-            <Container className='h-50 col'>
+        {warningSign? <Alert variant='transparent'
+        className='position-fixed --warnning_sign-styling col-10 col-sm-8 col-md-7 col-lg-6 mainbg border border-warning' style={{zIndex: "200"}}>
+            <Container className='h-50 col maincolor'>
             <Alert.Heading className='text-center'>Are you ready to take them/it home?</Alert.Heading>
             <p className='text-center'>
                 Please make sure you have prepared the suitable environment for your new member(s)
@@ -158,11 +158,11 @@ const ProSelected = () => {
             
             </Container>
             <hr className=''/>
-            <Container className="col ">
+            <Container className="col">
                 <div className='d-flex align-content-center justify-content-between my-0'>
-                    <Button className='w-50 align-content-center ml-1 mr-5' onClick={handleAdd}> Yes </Button>
+                    <Button variant='transparent' className='w-50 align-content-center ml-1 mr-5 noshadowbtn' onClick={handleAdd}> Yes </Button>
                     
-                    <Button className='w-50 align-content-center mr-1' onClick={()=> {setWarmingSign(false)}}> No </Button>                    
+                    <Button variant='transparent' className='w-50 align-content-center mr-1 noshadowbtn' onClick={()=> {setWarmingSign(false)}}> No </Button>                    
                 </div>
             </Container>
         </Alert>: null}
@@ -177,15 +177,15 @@ const ProSelected = () => {
 
                 
             </div> */}
-        <div class="row">
-            <aside class="col-md-3">
+        <div class="row maincolor">
+            <aside class="col-md-4">
                 
         <div class="card">
             <article class="filter-group">
-                <header class="card-header">
+                <header class="card-header bg-brown">
                     <a href="#" data-toggle="collapse" data-target="#collapse_1" aria-expanded="true" class="">
                         
-                        <h6 class="title">Breed search</h6>
+                        <h6 className="title maincolor">Breed search</h6>
                     </a>
                 </header>
                 <div class="filter-content collapse show" id="collapse_1">
@@ -220,14 +220,14 @@ const ProSelected = () => {
                 <header class="card-header">
                     <a href="#" data-toggle="collapse" data-target="#collapse_2" aria-expanded="true" class="">
                         <i class="icon-control fa fa-chevron-down"></i>
-                        <h6 class="title">Filter</h6>
+                        <h6 class="title maincolor">Filter</h6>
                     </a>
                 </header>
                 <div class="filter-content collapse show" id="collapse_2">
                     <div class="card-body">
                     {clickBoxesForCate.map((item)=>(
                        <Form.Check 
-                       type="radio"
+                       type="radio" className='checkedradio'
                        id={item.id}
                        value={item.search}
                        label={item.category}
@@ -240,7 +240,7 @@ const ProSelected = () => {
                         <br />
                     {clickBoxesForGender.map((item)=>(
                        <Form.Check 
-                       type="radio"
+                       type="radio" className='checkedradio'
                        id={item.id}
                        value={item.search}
                        label={item.gender}
@@ -266,7 +266,7 @@ const ProSelected = () => {
                 <header class="card-header">
                     <a href="#" data-toggle="collapse" data-target="#collapse_3" aria-expanded="true" class="">
                         <i class="icon-control fa fa-chevron-down"></i>
-                        <h6 class="title">Selected list {cartQuantity > 0 && <span>({cartQuantity} in your List)</span>} </h6>
+                        <h6 class="title maincolor">Selected list {cartQuantity > 0 && <span>({cartQuantity} in your List)</span>} </h6>
                     </a>
                 </header>
                 <div class="filter-content collapse show" id="collapse_3">
@@ -275,15 +275,15 @@ const ProSelected = () => {
                         <div>{proData.find((pro) => (pro.id == data.id)).title}</div>
                         <div>{proData.find((pro) => (pro.id == data.id)).breed}</div> 
                         </div> )}
-                        <button class="btn btn-block btn-primary" onClick={submitAll}>Confirm all</button>
+                        <button class="noshadowbtn" onClick={submitAll}>Confirm all</button>
                     </div> : <div className='d-flex justify-content-center align-items-center' style={{height: "100px"}}>Nothing selected</div>  }
                 </div>
             </article> 
-            <article class="filter-group">
+            {/* <article class="filter-group">
                 <header class="card-header">
                     <a href="#" data-toggle="collapse" data-target="#collapse_4" aria-expanded="true" class="">
                         <i class="icon-control fa fa-chevron-down"></i>
-                        <h6 class="title">Sizes </h6>
+                        <h6 class="title maincolor">Sizes </h6>
                     </a>
                 </header>
                 <div class="filter-content collapse show" id="collapse_4">
@@ -306,12 +306,12 @@ const ProSelected = () => {
                       </label>
                 </div>
                 </div>
-            </article> 
+            </article>  */}
             <article class="filter-group">
                 <header class="card-header">
                     <a href="#" data-toggle="collapse" data-target="#collapse_5" aria-expanded="false" class="">
                         <i class="icon-control fa fa-chevron-down"></i>
-                        <h6 class="title">More filter </h6>
+                        <h6 class="title maincolor">More filter </h6>
                     </a>
                 </header>
                 <div class="filter-content collapse in" id="collapse_5">
@@ -337,7 +337,7 @@ const ProSelected = () => {
             </article> 
         </div> 
             </aside> 
-            <main class="col-md-9">
+            <main class="col-md-8">
         <header class="border-bottom mb-4 pb-3">
                 <div class="form-inline">
                     <span class="mr-md-auto"> </span>
@@ -380,15 +380,15 @@ const ProSelected = () => {
             </div>
             
         </div> 
-        <nav class="mt-4 " aria-label="Page navigation sample" >
+        {/* <nav class="mt-4 " aria-label="Page navigation sample" >
           <ul class="pagination bg-light">
             <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
             <li class="page-item active"><a class="page-link">1</a></li>
-            {/* <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li> */}
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li> 
             <li class="page-item"><a class="page-link" href="#">Next</a></li>
           </ul>
-        </nav>
+        </nav> */}
             </main>
         </div>
         </div> 

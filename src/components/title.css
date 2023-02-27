@@ -8,6 +8,23 @@ section.title div{
 font-size: 35px;
 font-weight: 800;
 }
+
+@media screen and (max-width: 720px) {
+    section.title div{
+      font-size: 20px;
+      font-weight: 800;
+      }
+}
+
+
+@media screen and (max-width: 720px) {
+  .--animation-words span{
+    font-size: 18px;
+    display: block;
+    height: 100%;
+    animation: spin_words 6s infinite , fadeIn 3s ease-in-out infinite;
+    }
+}
 /*
 section div img{
     animation: ani_img 3s , fadeIn 3.5s ease-out ;

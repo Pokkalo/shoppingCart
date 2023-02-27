@@ -267,7 +267,7 @@
   transition: 0.5s ease;
 }
 
-.allbtn {
+:is(.allbtn, .login-box .allbtn,.noshadowbtn, .cartbtn){
   display: inline-block;
   padding: 10px 20px;
   font-size: 14px;
@@ -282,7 +282,14 @@
  background-color: transparent;
 }
 
-.allbtn:hover {
+:is(.noshadowbtn:hover, .cartbtn:hover):hover{
+  background: #8b622e;
+  color: #fff;
+  border-radius: 5px;
+}
+
+
+.allbtn:hover, .login-box .allbtn:hover {
   background: #8b622e;
   color: #fff;
   border-radius: 5px;
@@ -291,33 +298,6 @@
               0 0 50px #8b622e,
               0 0 100px #8b622e;
 }
-
-.login-box .allbtn {
-  display: inline-block;
-  padding: 10px 20px;
-  font-size: 14px;
-  text-decoration: none;
-  text-transform: uppercase;
-  margin-top: 40px;
-  letter-spacing: 2px;
-  color: #8b622e;
- border: 2px solid #8b622e;
- border-radius: 5px;
- margin: 5px;
- background-color: transparent;
-}
-
-.login-box .allbtn:hover {
-  background: #8b622e;
-  color: #fff;
-  border-radius: 5px;
-  box-shadow: 0 0 5px #8b622e,
-              0 0 25px #8b622e,
-              0 0 50px #8b622e,
-              0 0 100px #8b622e;
-}
-
-
 
 .login-box .login-useremail{
   color: peru;
@@ -473,4 +453,24 @@
 } 
 #cvv:hover{
 
+}
+
+.animation{
+  scale: 0.6;
+}
+
+.formtitlebgc{
+  background-color: wheat
+}
+
+.checkedradio input[type='radio']:checked{
+  accent-color: #8b622e;
+}
+
+.footerbg{
+  background-color: #eaac8e;
+}
+
+.footertitle{
+  font-weight: 700;
 }

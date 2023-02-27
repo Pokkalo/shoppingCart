@@ -98,7 +98,7 @@ const Cart = () => {
   }
 
   return (
-    <div className='d-flex flex-column justify-content-center align-items-center'>
+    <div className='d-flex flex-column justify-content-center align-items-center mainbg maincolor'>
       {logged? null:
       <div className='position-absolute --cart-entire_page_size w-100 h-100' style={{zIndex: "250"}}>
       <Alert variant="primary" 
@@ -261,10 +261,10 @@ const Cart = () => {
     <tr>
 
 
-      <th className='' style={{width: "60%"}}>Product</th>
-      <th className='' style={{width: "12%"}}>Price</th>
-      <th className='' style={{width: "10%"}}>Quanlity</th>
-      <th className='' style={{width: "16%"}}>#</th>
+      <th className='maincolor' style={{width: "60%"}}>Product</th>
+      <th className='maincolor' style={{width: "12%"}}>Price</th>
+      <th className='maincolor' style={{width: "10%"}}>Quanlity</th>
+      <th className='maincolor' style={{width: "16%"}}>#</th>
     </tr>
   </thead>
   <tbody>
@@ -278,7 +278,7 @@ const Cart = () => {
             <div class="col-md-3 text-left">
                 <img src={data.images[0]}  alt="" class="img-fluid d-none d-md-block rounded mb-2 shadow "/>
             </div>
-            <div class="col-md-9 text-left mt-sm-2">
+            <div class="col-md-9 text-left mt-sm-2 maincolor">
                 <h4>{data.title}</h4>
                 <p class="font-weight-light">{data.brand} &amp; {data.category}</p>
             </div>
@@ -300,9 +300,9 @@ const Cart = () => {
           </td>
           <td class="actions" data-th="">
               <div class="text-right row">
-                  <button class="btn btn-white border-0 bg-white btn-md mb-2 mx-1">
+                  {/* <button class="btn btn-white border-0 bg-white btn-md mb-2 mx-1">
                     <AiOutlineSync/>
-                  </button>
+                  </button> */}
                   <button class="btn btn-white border-0 bg-white btn-md mb-2 mx-1"
                   onClick={()=> removeItem(index)}>
                     <FaRegTrashAlt/>
@@ -321,13 +321,13 @@ const Cart = () => {
                   const qua = cartItems.find((i) => i.id == item.id).quantity
                   return (tot + item.price*qua)}
                   ,0)}</h1>
-                <button onClick={testing}>Button</button>
+                {/* <button onClick={testing}>Button</button> */}
             </div>
         </div>
     </div>
     <div class="row mt-4 d-flex align-items-center">
-        <div class="col-sm-6 order-md-2 text-right">
-            <a class="btn btn-primary mb-4 btn-lg pl-5 pr-5" onClick={()=>{ 
+        <div class="col">
+            <a class="allbtn" onClick={()=>{ 
               setPaymentState(true)
               console.log(cartQua)
               console.log(cartItems)
