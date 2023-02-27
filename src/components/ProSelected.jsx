@@ -105,7 +105,6 @@ const ProSelected = () => {
             console.log(newCart)
             await updateDoc(doc(collection(db, "user"), user.uid), {
               shoppingCart: newCart
-              
             })
 
             setTempCart([])

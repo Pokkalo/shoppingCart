@@ -57,7 +57,8 @@ const Account = () => {
 
       await setDoc(doc(usersRef, test.user.uid), {
         shoppingCart: [],
-        personalInfo: []
+        personalInfo: [],
+        productOrder: []
       });
 
     } catch (error) {

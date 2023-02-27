@@ -85,8 +85,9 @@ const Cart = () => {
       // nav('../cart')
   }
   // console.log(cartData.map((data) => (data)))
-
   }
+
+  
 
   const testing = () =>{
     let uuid = crypto.randomUUID();
@@ -292,9 +293,7 @@ const Cart = () => {
               min={1}
               ref={inputValue}
               onChange={(e) => {
-                
                 setCartQuantity(e, data.id)
-                
                 }
               }
               />
