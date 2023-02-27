@@ -8,7 +8,7 @@ import ProductItem from '../components/ProductItem'
 import { Alert, Container, Button, Form, InputGroup } from 'react-bootstrap'
 
 
-import {doc, setDoc, collection, addDoc, updateDoc} from 'firebase/firestore'
+import {doc, setDoc, collection, addDoc, updateDoc, getDocs} from 'firebase/firestore'
 import { UserAuth } from '../data/UserData'
 import { db } from '../firebase-config'
 
@@ -19,17 +19,19 @@ import { Radio } from 'semantic-ui-react'
 const ProSelected = () => {
     const {user, logged} = UserAuth()
     const [tempCart, setTempCart] = useState("")
+    const [mergeCart, setMergeCart] = useState([])
     
     const [proData, setProData] = useState(productInput)
     const [warningSign, setWarmingSign] = useState(false)
     
     const [search, setSearch] = useState("")
 
-    const [searchParams, setSearchParams] = useSearchParams();
     const [searchRadio, setSearchRadio] = useState("")
     const [searchGender, setSearchGender] = useState("")
 
     const {openCart, cartQuantity, cartItems} = useShoppingCart()
+
+    const userRef = collection(db, "user")
 
     const clickBoxesForCate = [
         {
@@ -79,7 +81,7 @@ const ProSelected = () => {
     }, [proData])
  
 
-    const submitAll = ()=>{
+    const submitAll = async()=>{
         const selectedItems = cartItems.map((data) => proData.find((pro) => (pro.id == data.id)))
         setTempCart(selectedItems)
         setWarmingSign(true)
@@ -92,14 +94,25 @@ const ProSelected = () => {
     const handleAdd = async() => {
         console.log(tempCart.map((data) => (data)))
         try {
-            await updateDoc(doc(collection(db, "user"), user.uid),{
-              shoppingCart: tempCart
+            const data = await getDocs(userRef, user.uid)
+            let cart = []
+            data.forEach((doc) => {
+              cart.push({...doc.data(), id: doc.id})
             })
+            cart = cart.find((data)=> data.id === user.uid).shoppingCart
+            const ids = new Set(cart.map((i) => i.id))
+            const newCart = cart.concat(tempCart.filter((item) => (!ids.has(item.id))))
+            console.log(newCart)
+            await updateDoc(doc(collection(db, "user"), user.uid), {
+              shoppingCart: newCart
+              
+            })
+
             setTempCart([])
+            console.log(user.uid)
+            nav('../cart')
         } catch (error) {
             console.log(error.message)
-        } finally{
-            console.log(user.uid)
             nav('../cart')
         }
         console.log(tempCart.map((data) => (data)))
@@ -185,8 +198,6 @@ const ProSelected = () => {
                             <Form.Control
                             onChange={(e) => {
                                 setSearch(e.target.value);
-                                
-                                
                             }}
                             placeholder='Search contacts'
                             />

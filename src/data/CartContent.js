@@ -60,7 +60,7 @@ export function ShoppingCartProvider({children}){
             return currItems.map(item => {
                 if(item.id === id){
                     console.log(e.target.value)
-                    return {...item, quantity: e.target.value}
+                    return {...item, quantity: e.target.value*1}
                 }else{
                     return item
                 }

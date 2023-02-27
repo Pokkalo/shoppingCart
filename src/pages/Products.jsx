@@ -53,6 +53,7 @@ const Products = () => {
             setTempCart([])
         } catch (error) {
             console.log(error.message)
+            nav('../cart')
         } finally{
             console.log(user.uid)
             nav('../cart')
