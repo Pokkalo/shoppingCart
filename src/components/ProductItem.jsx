@@ -32,7 +32,7 @@ const ProductItem = ({
                 <Card.Text>
                 {breed}
                 </Card.Text>
-                { quantity === 0? <Button className="w-100"  onClick={() => increaseCartQuantity(id)}>Add to Cart</Button> 
+                { quantity === 0? <Button variant='transparent' className="w-100 cartbtn"  onClick={() => increaseCartQuantity(id)}>Add to Cart</Button> 
                 : <div
                 className="d-flex align-items-center flex-column"
                 style={{ gap: ".5rem" }}

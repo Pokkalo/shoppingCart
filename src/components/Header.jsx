@@ -63,9 +63,6 @@ const Header = () => {
       <Nav.Link variant='dark' href='/cart' className='d-none d-lg-flex'>
         <img src="./icons/cart.svg" className='icons' alt="Cart" />
           <BsFillGearFill/></Nav.Link>
-        <Nav.Link variant='dark' href='' className='d-none d-lg-flex'>
-        <img src="./icons/setting.svg" className='icons' alt="Settings" />
-          <BsFillGearFill/></Nav.Link>
         <Nav.Link variant='dark' href='/account' className='d-none d-lg-flex'>
         <img src="./icons/user.svg" className='icons' alt="Users" /></Nav.Link>
       </Nav>

@@ -13,15 +13,15 @@ const Footer = () => {
   
   return (
     
-    <footer className="border-top text-light bg-dark sticky-bottom">
+    <footer className="border-top text-light footerbg sticky-bottom">
       <div className="d-flex flex-row justify-content-around">
         <div className="d-flex flex-column p-3">
           <div className=" col-md">
-            <h5>Address:</h5>
+            <h5 className='footertitle'>Address:</h5>
             <p>99 Tung Tau Wan Road, Stanley, Hong Kong</p>
           </div>
           <div className=" col-md">
-            <h5>Email:</h5>
+            <h5 className='footertitle'>Email:</h5>
             <p>sources11981755@gmail.com</p>
           </div>
         </div>
@@ -51,19 +51,18 @@ const Footer = () => {
       </div> */}
 
     <div className="flex-column p-3 align-content-center">
-
         <ul className="list-unstyled d-flex flex-column flex-md-row appearing_transtion text-light align-content-center my-auto">
           <li className='mt-2 mt-md-5'>
-              <NavLink className="text-muted m-3" to='https://developers.facebook.com/'><FontAwesomeIcon icon={faFacebook} size="2x"></FontAwesomeIcon></NavLink>
+              <NavLink className="text-muted m-3 " to='https://developers.facebook.com/'><FontAwesomeIcon icon={faFacebook} size="2x" color='#fff'></FontAwesomeIcon></NavLink>
           </li>
           <li className='mt-2 mt-md-5'>
-              <NavLink className="text-muted m-3" to='https://twitter.com/?lang=zh-Hant'><FontAwesomeIcon icon={faTwitter} size="2x"></FontAwesomeIcon></NavLink>
+              <NavLink className="text-muted m-3" to='https://twitter.com/?lang=zh-Hant'><FontAwesomeIcon icon={faTwitter} size="2x" color='#fff'></FontAwesomeIcon></NavLink>
           </li>
           <li className='mt-2 mt-md-5'>
-              <NavLink className="text-muted m-3" to='https://www.instagram.com/'><FontAwesomeIcon icon={faInstagram} size="2x"></FontAwesomeIcon></NavLink>
+              <NavLink className="text-muted m-3" to='https://www.instagram.com/'><FontAwesomeIcon icon={faInstagram} size="2x" color='#fff'></FontAwesomeIcon></NavLink>
           </li>
           <li className='mt-2 mt-md-5'>
-              <NavLink className="text-muted m-3" to='https://www.whatsapp.com/?lang=zh_tw'><FontAwesomeIcon icon={faWhatsapp} size="2x"></FontAwesomeIcon></NavLink>
+              <NavLink className="text-muted m-3" to='https://www.whatsapp.com/?lang=zh_tw'><FontAwesomeIcon icon={faWhatsapp} size="2x" color='#fff'></FontAwesomeIcon></NavLink>
           </li>
           {/* <li><a class="text-muted px-4 fa-5x" style="font-size: 2rem;" href="https://developers.facebook.com/"><FontAwesomeIcon icon={faFacebook}></FontAwesomeIcon></a></li>
           <li><a class="text-muted px-4 fa-5x" style="font-size: 2rem;" href="https://twitter.com/?lang=zh-Hant"></a></li>
