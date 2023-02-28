@@ -110,40 +110,40 @@ const ContactCard = () => {
       
       : null}
       <div className='mainbg --contectheight'>
-        <div className='p-5  --contactcardbox row mainbg'>
-        <div className='col catphone'>
-      <Lottie animationData={cuteCatMessage} />
-      </div>
-      <div className='col'>
-      <h2 className='--contact-title mb-5'>Send us a message</h2>
-      <form onSubmit={handleSubmit}>
-        <div className='contactinput-box'>
-          
-          <input id="name" type="text" name="name" value={values.name} onChange={handleChange}/>
-          <label htmlFor="name">Enter your Name</label>
-        </div>
+        <div className='p-5  --contactcardbox d-flex flex-column flex-md-row mainbg'>
+          <div className='col catphone'>
+            <Lottie animationData={cuteCatMessage} />
+          </div>
+        <div className='col'>
+        <h2 className='--contact-title mb-5'>Send us a message</h2>
+        <form onSubmit={handleSubmit}>
+          <div className='contactinput-box'>
+            
+            <input id="name" type="text" name="name" value={values.name} onChange={handleChange}/>
+            <label htmlFor="name">Enter your Name</label>
+          </div>
 
-        <div className='contactinput-box'>
+          <div className='contactinput-box'>
+            
+            <input id="email" type="email" name="email" value={values.email} onChange={handleChange} noValidate/>
+            <label htmlFor="email">Enter your Email</label>
+            <br></br> 
+            {errors.email.length >0 &&
+                <span className='error'>{errors.email}</span>}
+          </div>
+          <div className='contactinput-messagebox mb-4'>
+            
+            <textarea id="message" name="message" value={values.message} onChange={handleChange} noValidate/>
+            <label htmlFor="message">Enter your Message</label>
+            <br></br>
+            {errors.message.length >0 &&
+                <span className='error'>{errors.message}</span>}
           
-          <input id="email" type="email" name="email" value={values.email} onChange={handleChange} noValidate/>
-          <label htmlFor="email">Enter your Email</label>
-          <br></br> 
-          {errors.email.length >0 &&
-              <span className='error'>{errors.email}</span>}
-        </div>
-        <div className='contactinput-messagebox mb-4'>
-          
-          <textarea id="message" name="message" value={values.message} onChange={handleChange} noValidate/>
-          <label htmlFor="message">Enter your Message</label>
-          <br></br>
-          {errors.message.length >0 &&
-              <span className='error'>{errors.message}</span>}
-        
-        </div>
-        <button className='allbtn' type="submit">Submit</button>
-      </form>
+          </div>
+          <button className='allbtn ' type="submit">Submit</button>
+        </form>
 
-      </div>
+        </div>
       </div>
 
     </div>
