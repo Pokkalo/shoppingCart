@@ -105,6 +105,7 @@ const Cart = () => {
    
     const mergeQuaCart = cartData.map(t1 => 
       ({...t1, ...cartItems.find(t2 => t2.id === t1.id)})).concat(userOrderCart)
+      
       await updateDoc(doc(collection(db, "user"), user.uid), {
         productOrder: mergeQuaCart
       })

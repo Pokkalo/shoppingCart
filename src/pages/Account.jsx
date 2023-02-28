@@ -2,11 +2,13 @@ import React,{useState,useEffect,useContext} from 'react'
 import { Form, Button, } from 'react-bootstrap'
 import { useNavigate, } from 'react-router-dom';
 
+import { signInWithGoogle } from '../firebase-config';
 import { UserAuth } from '../data/UserData';
 import { db } from '../firebase-config';
 import { collection, doc, setDoc } from "firebase/firestore"; 
 
 import { FcGoogle } from 'react-icons/fc'
+
 
 const Account = () => {
   const [loginEmail, setLoginEmail] = useState("");
@@ -139,9 +141,13 @@ const Account = () => {
         <div class="--login-divider d-flex align-items-center justify-content-center my-4">
             <p class="text-center fw-bold mx-3 mb-0 text-muted">OR</p>
         </div>
-
-        <Button variant='secondary' className='btn-lg btn-block' ><FcGoogle/> Continue with Google</Button>
+        
+        <Button variant='secondary' className='btn-lg btn-block d-flex justify-content-center align-items-between' 
+        onClick={
+          signInWithGoogle
+          }><FcGoogle size={28}/>   Continue with Google</Button>
        
+      
         {/* <a class="btn btn-primary btn-lg btn-block" style="background-color: #3b5998" 
           role="button">
          Continue with Facebook
