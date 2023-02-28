@@ -306,7 +306,7 @@ const Cart = () => {
 
       <th className='maincolor' style={{width: "60%"}}>Product</th>
       <th className='maincolor' style={{width: "12%"}}>Price</th>
-      <th className='maincolor' style={{width: "10%"}}>Quanlity</th>
+      <th className='maincolor' style={{width: "10%"}}>Quantity</th>
       <th className='maincolor' style={{width: "16%"}}>#</th>
     </tr>
   </thead>
