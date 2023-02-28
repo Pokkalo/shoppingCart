@@ -138,9 +138,9 @@ const Cart = () => {
     <div className='d-flex flex-column justify-content-center align-items-center mainbg maincolor'>
       {logged? null:
       <div className='position-absolute --cart-entire_page_size w-100 h-100' style={{zIndex: "250"}}>
-      <Alert variant="primary" 
-        className='position-fixed --warnning_sign-styling col-10 col-sm-8 col-md-7 col-lg-6 ' style={{zIndex: "300"}}>
-      <Container className='h-50 col'>
+      <Alert  variant='transparent'
+        className='position-fixed --warnning_sign-styling col-10 col-sm-8 col-md-7 col-lg-6 mainbg border border-warning' style={{zIndex: "300"}}>
+      <Container className='h-50 col maincolor'>
       <Alert.Heading className='text-center'>Please login your account</Alert.Heading>
       <p className='text-center'>
           The shopping cart is unable without login your account.
@@ -150,9 +150,9 @@ const Cart = () => {
       <hr className=''/>
       <Container className="col ">
           <div className='d-flex align-content-center justify-content-between my-0'>
-              <Button className='w-50 align-content-center ml-1 mr-5' onClick={()=> {nav("../account")}}> Login </Button>
+              <Button  variant='transparent' className='w-50 align-content-center ml-1 mr-5 noshadowbtn' onClick={()=> {nav("../account")}}> Login </Button>
               
-              <Button className='w-50 align-content-center mr-1' onClick={()=> {nav("../")}}> Back to Home </Button>                    
+              <Button  variant='transparent' className='w-50 align-content-center mr-1 noshadowbtn' onClick={()=> {nav("../")}}> Back to Home </Button>                    
           </div>
       </Container>
         </Alert>
@@ -160,9 +160,9 @@ const Cart = () => {
         }
         {paid === false ? null:
       <div className='position-absolute --cart-entire_page_size w-100 h-100' style={{zIndex: "250"}}>
-      <Alert variant="primary" 
-        className='position-fixed --warnning_sign-styling col-10 col-sm-8 col-md-7 col-lg-6 ' style={{zIndex: "300"}}>
-      <Container className='h-50 col' id='focus'>
+      <Alert variant='transparent'
+        className='position-fixed --warnning_sign-styling col-10 col-sm-8 col-md-7 col-lg-6 mainbg border border-warning' style={{zIndex: "300"}}>
+      <Container className='h-50 col maincolor' id='focus'>
       <Alert.Heading className='text-center'>Thank you for your order!!</Alert.Heading>
       <p className='text-center'>
           We will send an email for further information
@@ -172,9 +172,9 @@ const Cart = () => {
       <hr className=''/>
       <Container className="col ">
           <div className='d-flex align-content-center justify-content-between my-0'>
-              <Button className='w-50 align-content-center ml-1 mr-5' onClick={()=> {nav("../borrow")}}>Continus shopping</Button>
+              <Button variant='transparent' className='w-50 align-content-center ml-1 mr-5 noshadowbtn' onClick={()=> {nav("../borrow")}}>Continus shopping</Button>
               
-              <Button className='w-50 align-content-center mr-1' onClick={()=> {nav("../")}}> Back to Home </Button>                    
+              <Button variant='transparent' className='w-50 align-content-center mr-1 noshadowbtn' onClick={()=> {nav("../")}}> Back to Home </Button>                    
           </div>
       </Container>
         </Alert>
