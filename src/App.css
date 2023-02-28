@@ -455,6 +455,11 @@
 
 }
 
+/* ==================== Cart Table ==================== */
+.--cart-table{
+  min-width: 75vw;
+}
+
 .animation{
   scale: 0.6;
 }

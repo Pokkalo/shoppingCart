@@ -133,6 +133,20 @@ const Account = () => {
           Create account
         </Button>
         </Form.Group>
+        
+        <div class="divider d-flex align-items-center my-4">
+            <p class="text-center fw-bold mx-3 mb-0 text-muted">OR</p>
+        </div>
+
+        {/* <Button variant='primary' className='btn-lg btn-block' style="background-color: #3b5998" ></Button>
+        <a class="btn btn-primary btn-lg btn-block" style="background-color: #3b5998" 
+          role="button">
+         Continue with Facebook
+        </a>
+        <a class="btn btn-primary btn-lg btn-block" style="background-color: #55acee" 
+          role="button">
+          Continue with Twitter</a> */}
+
 
       </Form>
       </div>

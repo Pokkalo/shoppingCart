@@ -102,26 +102,16 @@ const Cart = () => {
     })
     const userOrderCart = cart.find((data)=> data.id === user.uid).productOrder
     console.log(userOrderCart)
-    if(userOrderCart === [{}]){
-      const mergeQuaCart = cartData.map(t1 => 
-      ({...t1, ...cartItems.find(t2 => t2.id === t1.id)}))
+   
+    const mergeQuaCart = cartData.map(t1 => 
+      ({...t1, ...cartItems.find(t2 => t2.id === t1.id)})).concat(userOrderCart)
       await updateDoc(doc(collection(db, "user"), user.uid), {
         productOrder: mergeQuaCart
       })
       await updateDoc(doc(collection(db, "user"), user.uid),{
         shoppingCart: []
       })
-    console.log(mergeQuaCart)
-    } else { // to add the past order into firebase HAVE FINISHED!!!!!!!!!!!!!!!!!!!!
-      const mergeQuaCart = cartData.map(t1 => 
-        ({...t1, ...cartItems.find(t2 => t2.id === t1.id)})).concat(userOrderCart)
-        await updateDoc(doc(collection(db, "user"), user.uid), {
-          productOrder: mergeQuaCart
-        })
-        await updateDoc(doc(collection(db, "user"), user.uid),{
-          shoppingCart: []
-        })
-    }
+    
 
   }
 
@@ -295,7 +285,7 @@ const Cart = () => {
       
       :
       
-      <section class="pt-5 pb-5">
+  <section class="pt-5 pb-5 --cart-table">
   <div class="container">
     <div class="row w-100">
         <div class="col-lg-12 col-md-12 col-12">
@@ -369,7 +359,7 @@ const Cart = () => {
             
             <div class="float-right text-right">
                 <h4>Subtotal:</h4>
-                <h1>{cartData.reduce((tot, item) =>{
+                <h1>$ {cartData.reduce((tot, item) =>{
                   const qua = cartItems.find((i) => i.id == item.id).quantity
                   return (tot + item.price*qua)}
                   ,0)}</h1>
@@ -382,11 +372,9 @@ const Cart = () => {
             <a className='allbtn' onClick={()=>{nav("/products")}}>
             <AiOutlineShoppingCart /> Continue Shopping</a> </div>
             <div class="col text-right">
-            <a href="catalog.html" class="allbtn"onClick={()=>{ 
+            <a class="allbtn"onClick={()=>{ 
               setPaymentState(true)
               setCartQua(cartItems)
-
-
               }}>Checkout</a>       
         </div>
             
