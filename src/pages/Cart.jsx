@@ -370,7 +370,7 @@ const Cart = () => {
     </div>
     <div class="row mt-4 d-flex align-items-center">
     <div class="col">
-            <a className='allbtn' onClick={()=>{nav("/products")}}>
+            <a className='allbtn' onClick={()=>{nav("../borrow")}}>
             <AiOutlineShoppingCart /> Continue Shopping</a> </div>
             <div class="col text-right">
             <a class="allbtn"onClick={()=>{ 
