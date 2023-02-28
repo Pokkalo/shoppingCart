@@ -48,7 +48,7 @@ const HomeProduct = () => {
         </p>
         <a href="#">Borrow Now</a>
          </div>
-         <img src="./imgs/dog.png" alt=""></img>
+         <img src="./imgs/008_1-removebg.png" alt=""></img>
         </div>
         <div className="--rank_card col">
          <div className="circle">       
@@ -67,7 +67,7 @@ const HomeProduct = () => {
         </p>
         <a href="#">Borrow Now</a>
          </div>
-         <img src="./imgs/cutekitten.png" alt=""></img>
+         <img src="./imgs/0011_3-removebg.png" alt=""></img>
         </div>
         <div className="--rank_card col">
          <div className="circle"><svg  className='cls-1' viewBox="0 0 1000 1000">
@@ -77,12 +77,17 @@ const HomeProduct = () => {
 
     </svg></div>
         <div className="content">
-         <h2>Dog</h2>
-         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. iustoLorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque itaque, consequuntur 
+         <h2>Dodo</h2>
+         <p>Age: 3 <br/> 
+            Gender: M <br/> 
+            Weight: 1<br/> 
+            Breed: Dwarf Roborovski<br/>  
         </p>
-        <a href="#">Buy Now</a>
+
+
+        <a href="#">Borrow Now</a>
          </div>
-         <img src="./imgs/dog.png" alt=""></img>
+         <img src="./imgs/0014_1-removebg.png" alt=""></img>
         </div>
         </div>
         </div>

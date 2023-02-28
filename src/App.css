@@ -282,6 +282,8 @@
  background-color: transparent;
 }
 
+
+
 :is(.noshadowbtn:hover, .cartbtn:hover):hover{
   background: #8b622e;
   color: #fff;
