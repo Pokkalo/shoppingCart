@@ -5,12 +5,12 @@ import Cat404 from "./cat-on-pc.json";
 
 const ErrorPage = () => {
   return (
-    <div className='container'>
+      <div className='mainbg'>
      <div className='animation center'>
      <Lottie animationData={Cat404} />
       </div>
-    
-    </div>
+      </div>
+
   )
 }
 
