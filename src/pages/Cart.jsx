@@ -35,6 +35,8 @@ const Cart = () => {
 
 
   useEffect(() => {
+
+
     setCartData([])
     
     
@@ -44,30 +46,37 @@ const Cart = () => {
     data.forEach((doc) => {
       cart.push({...doc.data(), id: doc.id})
     })
-    setCartData(cart.find((data)=> data.id === user.uid).shoppingCart)
-    console.log(cart.find((data)=> data.id === user.uid).shoppingCart)
+    const userProCart = cart.find((data)=> data.id === user.uid).shoppingCart
+
+    if(userProCart !== null){
+    setCartData(userProCart)
+    console.log(userProCart)
     console.log(cart)
 
-    updateCartItems(cart.find((data)=> data.id === user.uid).shoppingCart.map((item) =>{
+    updateCartItems(userProCart.map((item) =>{
       const id = item.id
       return {id: id, quantity: 1}}
       ))
     setCartQua(cart.find((data)=> data.id === user.uid).shoppingCart.map((item) =>{
       const id = item.id
       return {id: id, quantity: 1}}
-      ))
+      ))}
   }
 
-    try {
+  if(paid === false)
+   { try {
       fetchData()
       console.log(cartQua)
     } catch (error) {
       console.log(error.message)
-      
-    } finally{
-      
-    }
-  },[logged,])
+    }} else {
+      const element = document.getElementById('focus');
+      if (element) {
+        console.log("inside!!")
+        element.scrollIntoView({ behavior: 'smooth' });
+    }}
+
+  },[logged, paid])
 
   const removeItem = async(id) =>{
     const newData = cartData.filter((_, data) => data !== id)
@@ -82,19 +91,57 @@ const Cart = () => {
       console.log(error.message)
   } finally{
       console.log(user.uid)
-      // nav('../cart')
   }
-  // console.log(cartData.map((data) => (data)))
+ 
+  }
+  const handoutOrder = async() =>{
+    const data = await getDocs(userRef, user.uid)
+    let cart = []
+    data.forEach((doc) => {
+      cart.push({...doc.data(), id: doc.id})
+    })
+    const userOrderCart = cart.find((data)=> data.id === user.uid).productOrder
+    console.log(userOrderCart)
+    if(userOrderCart === [{}]){
+      const mergeQuaCart = cartData.map(t1 => 
+      ({...t1, ...cartItems.find(t2 => t2.id === t1.id)}))
+      await updateDoc(doc(collection(db, "user"), user.uid), {
+        productOrder: mergeQuaCart
+      })
+      await updateDoc(doc(collection(db, "user"), user.uid),{
+        shoppingCart: []
+      })
+    console.log(mergeQuaCart)
+    } else { // to add the past order into firebase HAVE FINISHED!!!!!!!!!!!!!!!!!!!!
+      const mergeQuaCart = cartData.map(t1 => 
+        ({...t1, ...cartItems.find(t2 => t2.id === t1.id)})).concat(userOrderCart)
+        await updateDoc(doc(collection(db, "user"), user.uid), {
+          productOrder: mergeQuaCart
+        })
+        await updateDoc(doc(collection(db, "user"), user.uid),{
+          shoppingCart: []
+        })
+    }
+
   }
 
-  
-
-  const testing = () =>{
-    let uuid = crypto.randomUUID();
-    let uuid1 = crypto.randomUUID();
-    console.log(cartItems)
-    console.log(uuid1)
+  const testing = async() =>{
+    const mergeQuaCart = cartData.map(t1 => 
+      ({...t1, ...cartItems.find(t2 => t2.id === t1.id)}))
+      console.log(mergeQuaCart)
     
+    // try {
+    //   const data = await getDocs(userRef, user.uid)
+    //   let cart = []
+    //   data.forEach((doc) => {
+    //     cart.push({...doc.data(), id: doc.id})
+    //   })
+    //   const shoppingCartProd = cart.find((data)=> data.id === user.uid).shoppingCart
+    //   console.log(shoppingCartProd)
+
+    // } catch (error) {
+    //   console.log(error.message)
+    // }
   }
 
   return (
@@ -125,7 +172,7 @@ const Cart = () => {
       <div className='position-absolute --cart-entire_page_size w-100 h-100' style={{zIndex: "250"}}>
       <Alert variant="primary" 
         className='position-fixed --warnning_sign-styling col-10 col-sm-8 col-md-7 col-lg-6 ' style={{zIndex: "300"}}>
-      <Container className='h-50 col'>
+      <Container className='h-50 col' id='focus'>
       <Alert.Heading className='text-center'>Thank you for your order!!</Alert.Heading>
       <p className='text-center'>
           We will send an email for further information
@@ -225,9 +272,14 @@ const Cart = () => {
                         </div>
                     </div>
                     <div class="--payment-row row --payment-lower">
-                        <div class="col text-left"><a href="#"><u>Add promo code</u></a></div>
+                        <div class="col text-left"><a onClick={testing}><u>Add promo code</u></a></div>
                     </div>
-                    <button class="--payment-btn btn-danger" onClick={()=>{setPaid(true)}}>Place order</button>
+                    <button class="--payment-btn btn-danger" 
+                    onClick={()=>{
+                      setPaid(true)
+                      handoutOrder()
+                      }}>
+                      Place order</button>
                     <p class="text-muted text-center">Complimentary Shipping & Returns</p>
                 </div>
             </div>
@@ -329,9 +381,8 @@ const Cart = () => {
         <div class="col">
             <a class="allbtn" onClick={()=>{ 
               setPaymentState(true)
-              console.log(cartQua)
-              console.log(cartItems)
               setCartQua(cartItems)
+
 
               }}>Checkout</a>
         </div>

@@ -81,7 +81,7 @@ const ProSelected = () => {
     }, [proData])
  
 
-    const submitAll = async()=>{
+    const submitAll = ()=>{
         const selectedItems = cartItems.map((data) => proData.find((pro) => (pro.id == data.id)))
         setTempCart(selectedItems)
         setWarmingSign(true)
@@ -99,6 +99,7 @@ const ProSelected = () => {
             data.forEach((doc) => {
               cart.push({...doc.data(), id: doc.id})
             })
+            console.log(cart)
             cart = cart.find((data)=> data.id === user.uid).shoppingCart
             const ids = new Set(cart.map((i) => i.id))
             const newCart = cart.concat(tempCart.filter((item) => (!ids.has(item.id))))
@@ -275,38 +276,11 @@ const ProSelected = () => {
                         <div>{proData.find((pro) => (pro.id == data.id)).title}</div>
                         <div>{proData.find((pro) => (pro.id == data.id)).breed}</div> 
                         </div> )}
-                        <button class="noshadowbtn" onClick={submitAll}>Confirm all</button>
+                        <button class="noshadowbtn col-12" onClick={submitAll}>Confirm all</button>
                     </div> : <div className='d-flex justify-content-center align-items-center' style={{height: "100px"}}>Nothing selected</div>  }
                 </div>
             </article> 
-            {/* <article class="filter-group">
-                <header class="card-header">
-                    <a href="#" data-toggle="collapse" data-target="#collapse_4" aria-expanded="true" class="">
-                        <i class="icon-control fa fa-chevron-down"></i>
-                        <h6 class="title maincolor">Sizes </h6>
-                    </a>
-                </header>
-                <div class="filter-content collapse show" id="collapse_4">
-                    <div class="card-body">
-                      <label class="checkbox-btn">
-                        <input type="checkbox" />
-                        <span class="btn btn-light"> XS </span>
-                      </label>
-                      <label class="checkbox-btn">
-                        <input type="checkbox" />
-                        <span class="btn btn-light"> SM </span>
-                      </label>
-                      <label class="checkbox-btn">
-                        <input type="checkbox" />
-                        <span class="btn btn-light"> LG </span>
-                      </label>
-                      <label class="checkbox-btn">
-                        <input type="checkbox" />
-                        <span class="btn btn-light"> XXL </span>
-                      </label>
-                </div>
-                </div>
-            </article>  */}
+           
             <article class="filter-group">
                 <header class="card-header">
                     <a href="#" data-toggle="collapse" data-target="#collapse_5" aria-expanded="false" class="">
@@ -380,15 +354,7 @@ const ProSelected = () => {
             </div>
             
         </div> 
-        {/* <nav class="mt-4 " aria-label="Page navigation sample" >
-          <ul class="pagination bg-light">
-            <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
-            <li class="page-item active"><a class="page-link">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li> 
-            <li class="page-item"><a class="page-link" href="#">Next</a></li>
-          </ul>
-        </nav> */}
+     
             </main>
         </div>
         </div> 

@@ -49,13 +49,13 @@ const Account = () => {
   const handleCreate = async(e) => {
     e.preventDefault();
     try {
-      const test = await createUser(loginEmail, loginPassword)
+      const newUser = await createUser(loginEmail, loginPassword)
  
       console.log("account created!")
       setCreateState(true)
-      console.log(test.user.uid)
+      console.log(newUser.user.uid)
 
-      await setDoc(doc(usersRef, test.user.uid), {
+      await setDoc(doc(usersRef, newUser.user.uid), {
         shoppingCart: [],
         personalInfo: [],
         productOrder: []
