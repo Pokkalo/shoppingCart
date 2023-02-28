@@ -6,6 +6,8 @@ import { UserAuth } from '../data/UserData';
 import { db } from '../firebase-config';
 import { collection, doc, setDoc } from "firebase/firestore"; 
 
+import { FcGoogle } from 'react-icons/fc'
+
 const Account = () => {
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
@@ -134,12 +136,13 @@ const Account = () => {
         </Button>
         </Form.Group>
         
-        <div class="divider d-flex align-items-center my-4">
+        <div class="--login-divider d-flex align-items-center justify-content-center my-4">
             <p class="text-center fw-bold mx-3 mb-0 text-muted">OR</p>
         </div>
 
-        {/* <Button variant='primary' className='btn-lg btn-block' style="background-color: #3b5998" ></Button>
-        <a class="btn btn-primary btn-lg btn-block" style="background-color: #3b5998" 
+        <Button variant='secondary' className='btn-lg btn-block' ><FcGoogle/> Continue with Google</Button>
+       
+        {/* <a class="btn btn-primary btn-lg btn-block" style="background-color: #3b5998" 
           role="button">
          Continue with Facebook
         </a>

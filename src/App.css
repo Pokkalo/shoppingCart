@@ -462,6 +462,16 @@
   min-width: 75vw;
 }
 
+/* ====================  */
+
+.--login-divider:after,
+.--login-divider:before {
+content: "";
+flex: 1;
+height: 1px;
+background: #eee;
+}
+
 .animation{
   scale: 0.6;
 }
