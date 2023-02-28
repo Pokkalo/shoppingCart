@@ -177,7 +177,7 @@
   display: block;
 }
 
-.login-box a.user-box-btn span:nth-child(1) {
+.login-box .user-box-btn span:nth-child(1) {
   top: 0;
   left: -100%;
   width: 100%;
@@ -200,7 +200,7 @@
   right: 0;
   width: 2px;
   height: 100%;
-  background: linear-gradient(180deg, transparent, #08b622e);
+  background: linear-gradient(180deg, transparent, #8b622e);
   animation: btn-anim2 1s linear infinite;
   animation-delay: .25s
 }
