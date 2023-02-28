@@ -378,18 +378,19 @@ const Cart = () => {
         </div>
     </div>
     <div class="row mt-4 d-flex align-items-center">
-        <div class="col">
-            <a class="allbtn" onClick={()=>{ 
+    <div class="col">
+            <a className='allbtn' onClick={()=>{nav("/products")}}>
+            <AiOutlineShoppingCart /> Continue Shopping</a> </div>
+            <div class="col text-right">
+            <a href="catalog.html" class="allbtn"onClick={()=>{ 
               setPaymentState(true)
               setCartQua(cartItems)
 
 
-              }}>Checkout</a>
+              }}>Checkout</a>       
         </div>
-        <div class="col-sm-6 mb-3 mb-m-1 order-md-1 text-md-left">
-            <a onClick={()=>{nav("/products")}}>
-            <AiOutlineShoppingCart /> Continue Shopping</a>
-        </div>
+            
+
     </div>
 </div>
 </section>}
