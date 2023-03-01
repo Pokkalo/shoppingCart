@@ -2,6 +2,20 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+大家可以係js檔案 “firebase-config.js” 更改下面的内容成為自己的firebase 
+（需要先申請firebase賬號和設定方案 并且設置 “authorization” 和 “firestore database”）
+
+...
+const firebaseConfig = {
+  apiKey: "AIzaSyAOVzzuXOtxKH-IcmDggwwoFoenAhPE0Qs",
+  authDomain: "web-design-bc9b8.firebaseapp.com",
+  projectId: "web-design-bc9b8",
+  storageBucket: "web-design-bc9b8.appspot.com",
+  messagingSenderId: "10086557833",
+  appId: "1:10086557833:web:9c998f04853f3e7b5e7e58"
+};
+
+
 ## Available Scripts
 
 In the project directory, you can run:
