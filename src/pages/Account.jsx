@@ -165,7 +165,7 @@ const Account = () => {
       <h2>Welcome back!!</h2><p className='login-useremail'>{user.email}</p>
       <hr className=''/>
       
-      <Form >
+      <Form className="">
         <Form.Group controlId="formBasicEmail">
           <Form.Text className="">
             <h2>{userData.email}</h2>
@@ -175,8 +175,8 @@ const Account = () => {
         <Button className='allbtn' variant="transparent" type="submit" onClick={handleSignOut}>
           Logout
         </Button>
-        <Button className='allbtn' variant="transparent" type="submit" onClick={printing}>
-          console
+        <Button className='allbtn' variant="transparent" type="submit" onClick={() => {nav("../borrow")}}>
+          Go to shop
         </Button>
       </Form>
       </div> : null}

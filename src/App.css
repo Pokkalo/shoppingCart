@@ -98,11 +98,12 @@
     left: 50%;
     width: 400px;
     padding: 50px;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -30%);
     background: rgba(210, 180, 140, 0.5);
     box-sizing: border-box;
     box-shadow: 0 15px 25px #8b632e76;
     border-radius: 10px;
+    z-index: 1;
   }
 
   .login-box h2 {
@@ -131,10 +132,10 @@
 
   .login-box .user-box .user-boxlabel{
     position: absolute;
-    top:0;
+    top: -25px;
     left: 0;
     padding: 10px 0;
-    font-size: 16px;
+    font-size: 12px;
     color: #8b622e;
     pointer-events: none;
     transition: .5s;
@@ -250,6 +251,10 @@
   50%,100% {
     bottom: 100%;
   }
+}
+
+.--screen-size{
+  min-height: 700px;
 }
 
 .--about-titlesize{

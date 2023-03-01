@@ -186,7 +186,7 @@ const ProSelected = () => {
                 <header class="card-header bg-brown">
                     <a href="#" data-toggle="collapse" data-target="#collapse_1" aria-expanded="true" class="">
                         
-                        <h6 className="title maincolor">Breed search</h6>
+                        <h6 className="title maincolor">Search</h6>
                     </a>
                 </header>
                 <div class="filter-content collapse show" id="collapse_1">
@@ -336,8 +336,9 @@ const ProSelected = () => {
             {productInput.filter((item) => {
                 return search.toLocaleLowerCase() === ""?
                 item:
-                item.breed.toLowerCase().includes(search.toLowerCase())
+                item.breed.toLowerCase().includes(search.toLowerCase()) ||  item.title.toLowerCase().includes(search.toLowerCase())
             })
+            
             .filter((item)=>{
                 return searchRadio.toLowerCase() === ""?
                 item:

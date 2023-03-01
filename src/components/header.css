@@ -26,3 +26,7 @@ div h1{
     font-weight: 800;
 }
 
+.--header-style{
+    z-index: 900;
+}
+

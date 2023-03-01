@@ -4,9 +4,10 @@ const About = () => {
   return (
     <div className='mainbg'>
     <div className='d-flex pt-5 justify-content-center align-content-center'><img src="./imgs/工作區域 5.png" width="500rem" ></img></div>
-    <div className='row d-flex align-items-center justify-content-between'>
-    <div className='col p-5'><img src="./imgs/工作區域 4.png" width="500"></img>
-</div>
+    <div className='row flex-md-col d-flex align-items-center justify-content-between'>
+    <div className='col p-5'>
+      <img src="./imgs/工作區域 4.png" width="500"></img>
+      </div>
     <div className='col p-5 maincolor'>PTPF was founded in 2023 for the specific purpose of providing rental services to 
       people suffering from depression and other psychological problems.  Pets in PTPF 
       include dogs, cats, hamsters and others adopted from shutdown pet shops, the Hong Kong

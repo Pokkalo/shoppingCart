@@ -25,7 +25,7 @@ const Header = () => {
   }
 
   return (
-<Navbar expand="lg" style={{maxHeight: "300px"}} >
+<Navbar expand="lg" style={{maxHeight: "300px"}} className="--header-style">
     <div className='container sticky-top'>
   <Navbar.Brand href="#">
     <div className='logobox'>
