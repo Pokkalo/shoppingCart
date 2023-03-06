@@ -136,7 +136,7 @@ const Cart = () => {
   }
 
   return (
-    <div className='d-flex flex-column justify-content-center align-items-center mainbg maincolor'>
+    <div className='d-flex flex-column --screen-size justify-content-center align-items-center mainbg maincolor'>
       {logged? null:
       <div className='position-absolute --cart-entire_page_size w-100 h-100' style={{zIndex: "250"}}>
       <Alert  variant='transparent'

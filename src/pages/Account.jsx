@@ -90,7 +90,7 @@ const Account = () => {
   return (
     
     <div className=' --screen-size --pageSpace d-flex flex-column justify-content-center align-items-center mainbg'>
-      {/* <img src="./imgs/arthouse-studio.jpg" className='--account-image_style w-100' alt="" /> */}
+      
       {user? null : 
       <div className='d-flex flex-column justify-content-center  m-0 p-5 login-box'>
      {createState? <h2>New Account Created!</h2> :<h2>Login</h2>}

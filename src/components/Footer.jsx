@@ -13,7 +13,7 @@ const Footer = () => {
   
   return (
     
-    <footer className="border-top text-light footerbg sticky-bottom">
+    <footer className="border-top text-light footerbg sticky-bottom position-relative">
       <div className="d-flex flex-row justify-content-around">
         <div className="d-flex flex-column p-3">
           <div className=" col-md">

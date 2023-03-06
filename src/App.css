@@ -18,7 +18,7 @@
 
 .--pageSpace{
   /* height: 500px; */
-  min-height: 650px;
+  min-height: 90vh;
   /* 264px */
 }
 
@@ -96,9 +96,10 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 400px;
+    
+    min-width: 280px;
     padding: 50px;
-    transform: translate(-50%, -30%);
+    transform: translate(-50%, -50%);
     background: rgba(210, 180, 140, 0.5);
     box-sizing: border-box;
     box-shadow: 0 15px 25px #8b632e76;
@@ -132,13 +133,7 @@
 
   .login-box .user-box .user-boxlabel{
     position: absolute;
-    top: -25px;
-    left: 0;
     padding: 10px 0;
-    font-size: 12px;
-    color: #8b622e;
-    pointer-events: none;
-    transition: .5s;
   }
 
   .login-box .user-box .boxinput:focus ~ .user-boxlabel,
@@ -254,7 +249,7 @@
 }
 
 .--screen-size{
-  min-height: 700px;
+  min-height: 90vh;
 }
 
 .--about-titlesize{
@@ -492,6 +487,7 @@ background: #eee;
 
 .footerbg{
   background-color: #eaac8e;
+  z-index: 999;
 }
 
 .footertitle{
