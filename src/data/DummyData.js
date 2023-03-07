@@ -107,6 +107,8 @@ export const productInput = [
     description: "Jelly is outgoing, decent and behaved",
     gender: "M",
     price: 100,
+    topSales: false,
+    
 },
 {
     id: 8,
@@ -118,6 +120,7 @@ export const productInput = [
     thumbnail: "./img/008_1.jpg",
     images: [
     "./imgs/008_1.jpg",
+    "./imgs/008_1-removebg.png",
     "./imgs/008_2.jpg",
     "./imgs/008_3.jpg",
     "./imgs/008_4.jpg",
@@ -125,6 +128,7 @@ export const productInput = [
     description: "Rocky loves going for a walk and playing with balls",
     gender: "F",
     price: 100,
+    topSales: true,
 },
 {
     id: 9,
@@ -142,6 +146,7 @@ export const productInput = [
     description: "Coco is quiet and considerate",
     gender: "F",
     price: 100,
+    topSales: false,
 },
 {
     id: 10,
@@ -160,6 +165,7 @@ export const productInput = [
     description: "Pudding loves playing with human",
     gender: "M",
     price: 100,
+    topSales: false,
 },
 {
     id: 11,
@@ -171,12 +177,14 @@ export const productInput = [
     thumbnail: "./img/0011_1.jpg",
     images: [
     "./imgs/0011_1.jpg",
+    "./imgs/0011_3-removebg.png",
     "./imgs/0011_2.jpg",
     "./imgs/0011_3.jpg",
     ],
     description: "Baby has a cute face and tidy",
     gender: "F",
     price: 100,
+    topSales: true,
 },
 {
     id: 12,
@@ -195,6 +203,7 @@ export const productInput = [
     description: "Lucky is an extrovert, who is obedient and love human",
     gender: "F",
     price: 100,
+    topSales: false,
 },
 {
     id: 13,
@@ -211,6 +220,7 @@ export const productInput = [
     description: "Sneaky is always calm and obedient",
     gender: "F",
     price: 100,
+    topSales: false,
 },{
     id: 14,
     title: "Dodo",
@@ -221,6 +231,7 @@ export const productInput = [
     thumbnail: "./img/0014_1.jpg",
     images: [
     "./imgs/0014_1.jpg",
+    "./imgs/0014_1-removebg.png",
     "./imgs/0014_2.jpg",
     "./imgs/0014_3.jpg",
     "./imgs/0014_4.jpg",
@@ -228,6 +239,7 @@ export const productInput = [
     description: "Dodo is a friendly and obedient hamster",
     gender: "M",
     price: 100,
+    topSales: true,
 }
 
 

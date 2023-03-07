@@ -165,7 +165,7 @@ const Account = () => {
       <h2>Welcome back!!</h2><p className='login-useremail'>{user.email}</p>
       <hr className=''/>
       
-      <Form className="">
+      <Form className="d-flex flex-column flex-md-row">
         <Form.Group controlId="formBasicEmail">
           <Form.Text className="">
             <h2>{userData.email}</h2>

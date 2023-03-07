@@ -27,86 +27,60 @@ const HomeProduct = () => {
   <path class="cls-1" d="m223.93,355.12c-.34,0-.68-.13-.93-.39-.5-.51-.49-1.33.03-1.83,1.82-1.77,3.63-3.62,5.38-5.51.48-.52,1.3-.56,1.83-.07.53.49.56,1.3.07,1.83-1.78,1.93-3.62,3.81-5.48,5.61-.25.24-.58.37-.9.37Z" fill='#e7b387'/>
 </svg>
     </div>
+
         <h1 className='spacing text-center catpaw'>Borrow Me</h1>
         <div className="--rank-allcards row spacing mt-5">
-        <div class="--rank_card col">
-         <div class="circle">
-        <svg  viewBox="0 0 1000 1000">
+
+        {/* <svg  viewBox="0 0 1000 1000">
         <path className='cicle-transform1' d="m97.88,91.4c0,1.42-.15,3.55-.46,6.38-.31,2.84-.46,5-.46,6.48s-.03,3.81-.09,6.99-.09,5.54-.09,7.08-1.02,2.31-3.05,2.31c-.74,0-3.64-.59-8.7-1.76-5.61-1.23-16.1-1.85-31.46-1.85-4.75,0-11.87.26-21.37.79-9.5.52-16.56.79-21.19.79-1.6,0-2.5-.77-2.68-2.31-.19-2.1-.65-5.21-1.39-9.35-1.54-6.29-2.31-9.9-2.31-10.83,0-1.36,2.59-2.37,7.77-3.05,6.05-.8,9.93-1.91,11.66-3.33,6.23-5.24,12.61-11.87,19.15-19.89,8.33-10.12,12.49-17.7,12.49-22.76,0-4.38-1.59-8.07-4.77-11.06-3.18-2.99-6.95-4.49-11.33-4.49-4.93,0-9.84.99-14.71,2.96-3.27,1.23-6.69,3.02-10.27,5.37-3.02,1.91-4.69,2.87-5,2.87-2.1,0-3.15-2.47-3.15-7.4,0-3.82-.15-6.6-.46-8.33-.12-.8-.59-2.47-1.39-5-.74-2.16-1.11-3.76-1.11-4.81,0-.8.52-1.57,1.57-2.31,5.12-3.64,11.97-6.51,20.54-8.6,7.65-1.85,15.08-2.78,22.3-2.78,11.72,0,21.53,2.59,29.42,7.77,9.31,6.05,13.97,14.65,13.97,25.81,0,14.87-11.26,32.23-33.77,52.09,15.98-.8,28.5-1.2,37.57-1.2,1.85,0,2.78,1.14,2.78,3.42Z" fill="#236e82" stroke="#f2e4c2" strokeMiterlimit="10" stroke-width="7px" transform="translate(180, 35)"/>
         <path className='cicle-transform3' d="m555.32,279c0,153.42-124.37,277.78-277.78,277.78-368.48-14.63-368.37-540.99,0-555.57,153.41,0,277.78,124.37,277.78,277.79h0Z" fill="none" stroke="#e7b387" stroke-width="4px" stroke-miterlimit="10"  transform="translate(250, 50)"/>
         <path className='cicle-transform2' d="m555.32,279c0,153.42-124.37,277.78-277.78,277.78-368.48-14.63-368.37-540.99,0-555.57,153.41,0,277.78,124.37,277.78,277.79h0Z" fill="none" stroke="#e7b387" stroke-width="4.5px" stroke-miterlimit="10" stroke-dasharray="0 0 38.45 26.45" transform="translate(220, 85)"/>
-    </svg></div>
+        </svg> */}
 
-
-    
-        <div class="content">
-         <h2>Rocky</h2>
-         <p> Age: 9 <br/> 
-            Gender: F <br/> 
-            Weight: 5<br/> 
-            Breed: Poodle<br/>            
-        </p>
-        <a href="#">Borrow Now</a>
-         </div>
-         <img src="./imgs/008_1-removebg.png" alt=""></img>
-        </div>
-        <div className="--rank_card col">
-         <div className="circle">       
-         <svg  className='cls-1' viewBox="0 0 1000 1000">
+         {/* <svg  className='cls-1' viewBox="0 0 1000 1000">
          <path class="cicle-transform5" d="m173.53,189.6c0,1.93-.86,3.7-2.58,5.32-1.72,1.62-3.6,2.43-5.62,2.43-4.86,0-12.16.05-21.89.15-9.73.1-17.03.15-21.89.15-3.75,0-5.57-1.62-5.47-4.86l.15-1.67c1.42-38.72,2.13-62.18,2.13-70.39v-45.15c0-2.84-.66-4.26-1.98-4.26-2.03,0-5.09.61-9.2,1.82s-7.22,1.82-9.35,1.82c-3.14,0-4.71-1.88-4.71-5.62,0-3.45-.05-8.61-.15-15.51-.1-6.89-.15-12.11-.15-15.66,0-2.03,1.27-3.55,3.8-4.56,14.9-6.18,26.6-14.49,35.12-24.93,1.72-2.13,3.19-3.19,4.41-3.19.2,0,.81.1,1.82.3,3.85.81,9.58,2.08,17.18,3.8,4.05.51,9.98,1.42,17.79,2.74,1.42.41,2.13,1.52,2.13,3.34,0,.61-.1,1.67-.3,3.19-1.11,8.92-1.67,30.76-1.67,65.52,0,11.66.08,29.19.23,52.6.15,23.41.23,40.95.23,52.6Z" transform="translate(50, 35)" fill="#236e82" stroke="#f2e4c2" stroke-miterlimit="10" stroke-width="11px"/>
          <path class="cicle-transformheart" d="m39.25,61.2s-22.96-36.74-35.08.15c-12.12,36.89,45.13,40.47,69.5,46.58,0,0,12.61-56.58-2.25-81.54-5.57-9.35-33.71-15.25-32.17,34.81Z" transform="translate(50, 35)" fill="#f79cb8" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="5px"/>
          <path className='cicle-transform2' d="m555.32,279c0,153.42-124.37,277.78-277.78,277.78-368.48-14.63-368.37-540.99,0-555.57,153.41,0,277.78,124.37,277.78,277.79h0Z" fill="none" stroke="#e7b387" stroke-width="4.5px" stroke-miterlimit="10" stroke-dasharray="0 0 38.45 26.45" transform="translate(220, 85)"/>
-    </svg></div>
-         
-        <div className="content">
-         <h2>Baby</h2>
-         <p> Age: 1 <br/> 
-            Gender: F <br/> 
-            Weight: 4<br/> 
-            Breed: Ragdoll<br/>           
-        </p>
-        <a href="#">Borrow Now</a>
-         </div>
-         <img src="./imgs/0011_3-removebg.png" alt=""></img>
-        </div>
-        <div className="--rank_card col">
-         <div className="circle"><svg  className='cls-1' viewBox="0 0 1000 1000">
+    </svg> */}
+
+    {/* <svg  className='cls-1' viewBox="0 0 1000 1000">
          <path className='cicle-transform6' d="m555.32,279c0,153.42-124.37,277.78-277.78,277.78-368.48-14.63-368.37-540.99,0-555.57,153.41,0,277.78,124.37,277.78,277.79h0Z" fill="none" stroke="#e7b387" stroke-width="4px" stroke-miterlimit="10"  transform="translate(190, 50)"/>
          <path className='cicle-transform7' d="m555.32,279c0,153.42-124.37,277.78-277.78,277.78-368.48-14.63-368.37-540.99,0-555.57,153.41,0,277.78,124.37,277.78,277.79h0Z" fill="none" stroke="#e7b387" stroke-width="4.5px" stroke-miterlimit="10" stroke-dasharray="0 0 38.45 26.45" transform="translate(220, 85)"/>
          <path class="cicle-transform1" d="m93.16,89.06c0,11.74-4.85,20.78-14.56,27.12-8.25,5.46-18.56,8.18-30.93,8.18-9.52,0-17.35-.67-23.51-2-13.39-2.79-20.08-5.27-20.08-7.42,0-.38.13-.95.38-1.71.89-2.35,2.19-5.87,3.9-10.56.51-2.35,1.4-5.84,2.66-10.47.57-1.59,1.52-2.38,2.85-2.38-.19,0,2.65,1.05,8.52,3.14s10.67,3.14,14.42,3.14c12.43,0,18.65-4.16,18.65-12.47,0-6.66-5.9-9.99-17.7-9.99-1.59,0-3.68.06-6.28.19-2.6.13-4.31.19-5.14.19-3.87,0-6-.03-6.38-.1-2.79-.32-4.19-1.4-4.19-3.24,0-9.71.38-15.8,1.14-18.27.51-1.59,1.52-2.38,3.05-2.38,2.16,0,5.35.27,9.56.81,4.22.54,7.38.81,9.47.81,2.73,0,5-.9,6.8-2.71,1.81-1.81,2.71-4.11,2.71-6.9,0-7.49-5.46-11.23-16.37-11.23-4.57,0-10.75,1.24-18.56,3.71-.32.06-.6.1-.86.1-.82,0-1.52-.89-2.09-2.66-.13-2.66-.32-5.71-.57-9.14-.06-.76-.25-2.28-.57-4.57-.25-1.84-.38-3.33-.38-4.47,0-3.36,5.2-5.96,15.61-7.8,7.17-1.27,14.12-1.9,20.84-1.9,10.79,0,20.24,2.38,28.36,7.14,9.83,5.71,14.75,13.61,14.75,23.7,0,11.61-5.27,20.43-15.8,26.46,6.22,2.09,11.15,5.61,14.8,10.56,3.65,4.95,5.47,10.66,5.47,17.13Z" fill="#236e82" stroke="#f2e4c2" stroke-miterlimit="10" stroke-width="8px"  transform="translate(200, 35)"/>
-
-    </svg></div>
-        <div className="content">
-         <h2>Dodo</h2>
-         <p>Age: 3 <br/> 
-            Gender: M <br/> 
-            Weight: 1<br/> 
-            Breed: Dwarf Roborovski<br/>  
-        </p>
+         </svg> */}
 
 
-        <a href="#">Borrow Now</a>
-         </div>
-         <img src="./imgs/0014_1-removebg.png" alt=""></img>
-        </div>
-        </div>
-        </div>
-        {/* <div className="--rank_cards">
-            <div className='card'>
-            <img src='./product_image/product2.png' className='card-img-top' width={300}></img>
-            <div class="card-body">
-                <h2>
-                 HOVER EFFECT 
-                </h2>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-green d-inline-block text-center">Buy now</a>
+
+
+
+        {productInput.filter((product) => product.topSales === true).map((data) =>
+            <div class="--rank_card col">
+                <div class="circle">
+                </div>
+                <div class="content">
+                <h2>{data.title}</h2>
+                <p> Age: {data.age} <br/> 
+                    Gender: {data.gender} <br/> 
+                    Weight: {data.weight}<br/> 
+                    Breed: {data.breed}<br/>            
+                </p>
+                <a href="#">Borrow Now</a>
+                </div>
+                <img src={data.images[1]} alt=""></img>
             </div>
+        )}
 
-        <div className="allcards row spacing col-12 mt-5 align-content-center">
+        
 
-        {/* {
-            proData.map((data) =>( <AnimatedItem {...data}/> ))
-        } */}
+
+       
+            
+        
+       
+        </div>
+        </div>
+        </div>
+       
    
  
         </div>
@@ -115,7 +89,7 @@ const HomeProduct = () => {
             
 
 
-        </div>
+     
   )
 }
 

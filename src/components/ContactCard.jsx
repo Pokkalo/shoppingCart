@@ -76,8 +76,8 @@ const ContactCard = () => {
         // )
       console.log(mergeFeedback)
       const user = values.name
-      await updateDoc(doc(collection(db, "feedback"), values.name),
-      {...mergeFeedback})
+      await updateDoc(doc(collection(db, "feedback"), user),
+      {...data, ...mergeFeedback})
       setSubmitState(true)
     } catch (error) {
       console.log(error.message)

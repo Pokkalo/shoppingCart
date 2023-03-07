@@ -14,6 +14,9 @@ import { productInput } from '../data/DummyData'
 import {AiOutlineShoppingCart, AiOutlineSync} from 'react-icons/ai'
 import {FaRegTrashAlt} from 'react-icons/fa'
 
+// For loading page
+import { ClimbingBoxLoader } from 'react-spinners'
+
  
 
 const Cart = () => {
@@ -26,6 +29,8 @@ const Cart = () => {
   const [paymentState, setPaymentState] = useState(false)
   const [paid, setPaid] = useState(false)
 
+  const [loading, setLoading] = useState(true)
+
   const userRef = collection(db, "user")
   const {user, logged} = UserAuth()
 
@@ -36,7 +41,13 @@ const Cart = () => {
 
   useEffect(() => {
 
-
+    const loadingPage = async() =>{
+      const testing = setTimeout(()=>{
+          setLoading(false)
+      }, 1000)
+      await testing()
+    }
+    loadingPage()
     setCartData([])
     
     
@@ -137,7 +148,14 @@ const Cart = () => {
 
   return (
     <div className='d-flex flex-column --screen-size justify-content-center align-items-center mainbg maincolor'>
-      {logged? null:
+      
+      {loading? 
+      <div className='--pageSpace --loadingPage mainbg w-100 d-flex justify-content-center align-items-center position-absolute' zIndex={999}>
+        <ClimbingBoxLoader color="#8b622e"  loading={loading}/>
+      </div>
+      : null}
+      
+      {loading === false && logged? null:
       <div className='position-absolute --cart-entire_page_size w-100 h-100' style={{zIndex: "250"}}>
       <Alert  variant='transparent'
         className='position-fixed --warnning_sign-styling col-10 col-sm-8 col-md-7 col-lg-6 mainbg border border-warning' style={{zIndex: "300"}}>
@@ -159,7 +177,7 @@ const Cart = () => {
         </Alert>
         </div>
         }
-        {paid === false ? null:
+        {loading === false && paid === false ? null:
       <div className='position-absolute --cart-entire_page_size w-100 h-100' style={{zIndex: "250"}}>
       <Alert variant='transparent'
         className='position-fixed --warnning_sign-styling col-10 col-sm-8 col-md-7 col-lg-6 mainbg border border-warning' style={{zIndex: "300"}}>
@@ -173,15 +191,15 @@ const Cart = () => {
       <hr className=''/>
       <Container className="col ">
           <div className='d-flex align-content-center justify-content-between my-0'>
-              <Button variant='transparent' className='w-50 align-content-center ml-1 mr-5 noshadowbtn' onClick={()=> {nav("../borrow")}}>Continus shopping</Button>
+              <Button variant='transparent' className='align-content-center noshadowbtn p-1' onClick={()=> {nav("../borrow")}}>Continus shopping</Button>
               
-              <Button variant='transparent' className='w-50 align-content-center mr-1 noshadowbtn' onClick={()=> {nav("../")}}> Back to Home </Button>                    
+              <Button variant='transparent' className='align-content-center noshadowbtn p-2' onClick={()=> {nav("../")}}> Back to Home </Button>                    
           </div>
       </Container>
         </Alert>
         </div>
         }     
-      {paymentState? 
+      {loading === false && paymentState? 
 
 <div class="--payment-body">
     

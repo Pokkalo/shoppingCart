@@ -10,7 +10,7 @@
 }
 
 
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 767px) {
     .--contectheight{
         height: 1000px;
         display: flex;

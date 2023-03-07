@@ -493,3 +493,8 @@ background: #eee;
 .footertitle{
   font-weight: 700;
 }
+
+/* ====================== For loading page ====================== */
+.--loadingPage{
+  z-index: 999;
+}
