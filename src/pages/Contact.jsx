@@ -3,7 +3,7 @@ import ContactCard from '../components/ContactCard'
 
 const Contact = () => {
   return (
-    <div className='--pageSpace'>
+    <div className='--pageSpace --contact-container'>
       <ContactCard/>
     </div>
   )

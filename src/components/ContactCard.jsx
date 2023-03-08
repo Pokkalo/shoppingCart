@@ -86,7 +86,7 @@ const ContactCard = () => {
   }
 
   return (
-    <div>
+    <>
     {submitState? 
       
       <Alert variant='transparent'
@@ -147,7 +147,7 @@ const ContactCard = () => {
       </div>
 
     </div>
-    </div>
+    </>
   )
 }
 

@@ -18,9 +18,16 @@
 
 .--pageSpace{
   /* height: 500px; */
-  min-height: 90vh;
+  min-height: 50vh;
   /* 264px */
 }
+
+
+/* @media(min-width:767px){
+  .--contact-container{
+    height: 100vh;
+  }
+} */
 
 .--account-container{
   min-height: 600px;
@@ -351,6 +358,7 @@
   .--payment-card-top{
       padding: 0.7rem 1rem;
   }
+
 }
 .--payment-row{
   margin: 0;
@@ -501,3 +509,4 @@ background: #eee;
 .--loadingPage{
   z-index: 999;
 }
+
