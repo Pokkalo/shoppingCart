@@ -3,7 +3,7 @@ import ContactCard from '../components/ContactCard'
 
 const Contact = () => {
   return (
-    <div className='--pageSpace --contact-container'>
+    <div className='--pageSpace mainbg d-flex justify-content-center align-items-center'>
       <ContactCard/>
     </div>
   )
