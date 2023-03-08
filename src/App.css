@@ -22,6 +22,10 @@
   /* 264px */
 }
 
+.--account-container{
+  min-height: 600px;
+}
+
 .--login-screen_size{
   width: 100vw;
   height: 100vh;
@@ -94,12 +98,11 @@
 
   .login-box {
     position: absolute;
-    top: 50%;
-    left: 50%;
+
     
     min-width: 280px;
     padding: 50px;
-    transform: translate(-50%, -50%);
+    
     background: rgba(210, 180, 140, 0.5);
     box-sizing: border-box;
     box-shadow: 0 15px 25px #8b632e76;

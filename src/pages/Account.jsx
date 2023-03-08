@@ -92,7 +92,9 @@ const Account = () => {
     <div className=' --screen-size --pageSpace d-flex flex-column justify-content-center align-items-center mainbg'>
       
       {user? null : 
-      <div className='d-flex flex-column justify-content-center  m-0 p-5 login-box'>
+
+      <div className="--account-container d-flex justify-content-center align-items-center">
+      <div className='d-flex flex-column justify-content-center align-items-center m-0 p-5 login-box'>
      {createState? <h2>New Account Created!</h2> :<h2>Login</h2>}
       <hr className=''/>
       
@@ -120,7 +122,7 @@ const Account = () => {
         </Form.Group>
 
         <Form.Group className='d-flex flex-row justify-content-between mt-3'>
-        <Button className='user-box-btn' variant="transparent" type="submit" onClick={handleLogin}>
+        <Button className='user-box-btn mr-3 d-flex justify-content-center align-items-center' variant="transparent" type="submit" onClick={handleLogin}>
         <span></span>
       <span></span>
       <span></span>
@@ -158,6 +160,7 @@ const Account = () => {
 
 
       </Form>
+      </div>
       </div>
       }
 

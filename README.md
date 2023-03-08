@@ -4,6 +4,7 @@
 npm i
 npm i firebase
 npm i lottie
+npm i react-spinners
 
 輸入指令后可以輸入"npm start"啓動網站
 
