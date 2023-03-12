@@ -18,7 +18,6 @@ const ProductItem = ({
     const {
         getItemQuantity,
         increaseCartQuantity,
-        decreaseCartQuantity,
         removeFromCart
     } = useShoppingCart()
     const quantity = getItemQuantity(id)

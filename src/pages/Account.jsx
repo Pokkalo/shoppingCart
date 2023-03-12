@@ -1,4 +1,4 @@
-import React,{useState,useEffect,useContext} from 'react'
+import React,{useState} from 'react'
 import { Form, Button, } from 'react-bootstrap'
 import { useNavigate, } from 'react-router-dom';
 
@@ -71,20 +71,6 @@ const Account = () => {
     }
   }
 
-  function printing(e){
-    e.preventDefault();
-    try {
-      console.log(user.email)
-    } catch (error) {
-      console.log(user)
-      console.log(error.message)
-    }
-    
-    // for(let data of user){
-    //   console.log(typeof data)
-      
-    // }
-  }
 
 
   return (

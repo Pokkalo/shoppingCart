@@ -1,17 +1,16 @@
 import React, {useState, useRef,useEffect, } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Form, Button, Table, Alert, Container } from 'react-bootstrap'
+import {Button, Table, Alert, Container } from 'react-bootstrap'
 //for sending data to firebase
-import {doc, setDoc, getDocs,updateDoc, collection, onSnapshot} from 'firebase/firestore'
+import {doc, getDocs,updateDoc, collection} from 'firebase/firestore'
 
 import { db } from '../firebase-config'
 import { UserAuth } from '../data/UserData'
 
 import { useShoppingCart } from '../data/CartContent'
 
-import { productInput } from '../data/DummyData'
 // For icons
-import {AiOutlineShoppingCart, AiOutlineSync} from 'react-icons/ai'
+import {AiOutlineShoppingCart} from 'react-icons/ai'
 import {FaRegTrashAlt} from 'react-icons/fa'
 
 // For loading page
@@ -22,7 +21,7 @@ import { ClimbingBoxLoader } from 'react-spinners'
 const Cart = () => {
   
   const inputValue = useRef(null)
-  const [proData, setProData] = useState(productInput)
+  // const [proData, setProData] = useState(productInput)
   const [cartData, setCartData] = useState([])
   const [cartQua, setCartQua] = useState()
   const [state, setState] = useState(false) // for refresh
@@ -36,7 +35,7 @@ const Cart = () => {
 
   const nav = useNavigate()
 
-  const {getItemQuantity,increaseCartQuantity, decreaseCartQuantity, updateCartItems, setCartQuantity, removeFromCart, cartItems, cartQuantity } = useShoppingCart()
+  const {updateCartItems, setCartQuantity,  cartItems, } = useShoppingCart()
 
 
   useEffect(() => {

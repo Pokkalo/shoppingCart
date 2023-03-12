@@ -3,15 +3,15 @@ import FadeCarousel from '../components/FadeCarousel'
 const About = () => {
   return (
     <div className='mainbg'>
-    <div className='d-flex pt-5 justify-content-center align-content-center'><img src="./imgs/工作區域 5.png" width="500rem" ></img></div>
+    <div className='d-flex pt-5 justify-content-center align-content-center'><img src="./imgs/工作區域 5.png" width="500rem" alt='img'></img></div>
     <div className='row flex-md-col d-flex align-items-center justify-content-between'>
     <div className='col p-5'>
-      <img src="./imgs/工作區域 4.png" width="500"></img>
+      <img src="./imgs/工作區域 4.png" alt='img2' width="500"></img>
       </div>
     <div className='col p-5 maincolor'>PTPF was founded in 2023 for the specific purpose of providing rental services to 
       people suffering from depression and other psychological problems.  Pets in PTPF 
       include dogs, cats, hamsters and others adopted from shutdown pet shops, the Hong Kong
-       Government’s Agriculture, Fisheries and Conservation Department (AFCD) Animal Management 
+       Government's Agriculture, Fisheries and Conservation Department (AFCD) Animal Management 
        Centres. Petting, holding, or cuddling an animal increases the levels of serotonin 
        and dopamine in our bodies, which are feel-good, calming brain chemicals. As a result of 
        these positive chemical changes, our feelings of depression and loneliness may be reduced

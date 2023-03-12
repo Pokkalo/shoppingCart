@@ -1,24 +1,7 @@
-import React,{useState,useEffect,useContext} from 'react'
-import { Form, Button, } from 'react-bootstrap'
-
-import { auth } from '../firebase-config';
-import {
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  onAuthStateChanged,
-  signOut,
-} from "firebase/auth";
-
-
+import React from 'react'
 
 
 const UserPage = () => {
-
-
-
-  const logout = async () => {
-    await signOut(auth);
-  };
 
   return (
     <div className=' --screen-size --pageSpace d-flex flex-column justify-content-center align-items-center mainbg'>
@@ -27,11 +10,6 @@ const UserPage = () => {
     
     <h2>Please wait...</h2>
     
-
-      {/* <Button variant="dark" type="submit" onClick={logout}>
-        Sign Out
-      </Button> */}
-
     </div>
   </div>
   )

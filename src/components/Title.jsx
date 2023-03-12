@@ -1,6 +1,6 @@
 import React from 'react'
 import WordAnimation from './WordAnimation'
-import style from "./title.css"
+import "./title.css"
 import "bootstrap/dist/css/bootstrap.min.css"
 import Lottie from "lottie-react";
 import cuteCat from "./catanmation/Catinbox.json";
