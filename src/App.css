@@ -507,6 +507,6 @@ background: #eee;
 
 /* ====================== For loading page ====================== */
 .--loadingPage{
-  z-index: 999;
+  z-index: 251;
 }
 

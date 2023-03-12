@@ -109,13 +109,14 @@ const ContactCard = () => {
         </Alert>
       
       : null}
+      
       <div className='mainbg --contectheight'>
-        <div className='p-5  --contactcardbox d-flex flex-column flex-md-row mainbg'>
-          <div className='col catphone'>
+        <div className='p-5  --contactcardbox d-flex flex-column flex-md-row mainbg mx-3'>
+          <div className='col catphone mb-3'>
             <Lottie animationData={cuteCatMessage} />
           </div>
         <div className='col'>
-        <h2 className='--contact-title mb-5'>Send us a message</h2>
+        <h2 className='--contact-title mb-5 text-center'>Send us a message</h2>
         <form onSubmit={handleSubmit}>
           <div className='contactinput-box'>
             
