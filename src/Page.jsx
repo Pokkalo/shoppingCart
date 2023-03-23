@@ -1,6 +1,4 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
-
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
 
 import Header from './components/Header'
@@ -18,8 +16,6 @@ import UserPage from './pages/UserPage'
 import Contact from './pages/Contact'
 import { AuthContextProvider } from './data/UserData'
 import { ShoppingCartProvider } from './data/CartContent'
-
-import { useState } from 'react'
 
 const Page = () => {
   // const [email, setEmail] = useState("")

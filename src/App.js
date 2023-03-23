@@ -1,6 +1,5 @@
 import './App.css';
 import Page from './Page';
-import Footer from './components/Footer';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 

@@ -1,15 +1,10 @@
-import React, {useState} from 'react'
+import React from 'react'
 import Carousel from 'react-bootstrap/Carousel';
-import style from './header.css'
+
 
 
 const FadeCarousel = () => {
 
-    const [index, setIndex] = useState(0);
-
-    const handleSelect = (selectedIndex, e) => {
-      setIndex(selectedIndex);
-    };
   
   return (
     <div>
