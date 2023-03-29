@@ -12,6 +12,7 @@ import style from './header.css'
 import "bootstrap/dist/css/bootstrap.min.css"
 
 import {BsFillGearFill,BsPersonCircle} from 'react-icons/bs'
+import {AiOutlineShoppingCart} from 'react-icons/ai'
 
 
 const Header = () => {
@@ -61,10 +62,13 @@ const Header = () => {
     </Nav>
       <Nav className='d-flex flex-row'>
       <Nav.Link variant='dark' href='/cart' className='d-none d-lg-flex'>
-        <img src="./icons/cart.svg" className='icons' alt="Cart" />
-          <BsFillGearFill/></Nav.Link>
+        {/* <img src="./icons/cart.svg" className='icons' alt="Cart" /> */}
+        <AiOutlineShoppingCart size={24}/>
+        </Nav.Link>
         <Nav.Link variant='dark' href='/account' className='d-none d-lg-flex'>
-        <img src="./icons/user.svg" className='icons' alt="Users" /></Nav.Link>
+        {/* <img src="./icons/user.svg" className='icons' alt="Users"/> */}
+        <BsPersonCircle size={24}/>
+        </Nav.Link>
       </Nav>
     {/* <Form className="d-flex">
       <FormControl

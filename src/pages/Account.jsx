@@ -9,7 +9,6 @@ import { collection, doc, setDoc } from "firebase/firestore";
 
 import { FcGoogle } from 'react-icons/fc'
 
-
 const Account = () => {
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");

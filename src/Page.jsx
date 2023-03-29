@@ -1,5 +1,5 @@
 import React from 'react'
-import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
+import {BrowserRouter as Router, Routes, Route,} from "react-router-dom"
 
 import Header from './components/Header'
 import Footer from './components/Footer'
@@ -14,8 +14,12 @@ import Borrow from './pages/Borrow'
 import Cart from './pages/Cart'
 import UserPage from './pages/UserPage'
 import Contact from './pages/Contact'
+
 import { AuthContextProvider } from './data/UserData'
 import { ShoppingCartProvider } from './data/CartContent'
+
+import LoadingCom from './components/LoadingCom'
+
 
 const Page = () => {
   // const [email, setEmail] = useState("")
@@ -32,7 +36,8 @@ const Page = () => {
         <NavLink to='/setting'>Setting</NavLink>
       </nav> */}
       <AuthContextProvider >
-        <ShoppingCartProvider>
+      <ShoppingCartProvider>
+      <LoadingCom/>
       <Header/>
       <Routes>
           <Route path='/' element={<Home/>}></Route>

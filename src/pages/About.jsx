@@ -1,5 +1,7 @@
 import React from 'react'
 import FadeCarousel from '../components/FadeCarousel'
+import { motion } from 'framer-motion'
+
 const About = () => {
   return (
     <div className='mainbg'>

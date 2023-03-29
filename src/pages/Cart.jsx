@@ -14,7 +14,7 @@ import {AiOutlineShoppingCart} from 'react-icons/ai'
 import {FaRegTrashAlt} from 'react-icons/fa'
 
 // For loading page
-import { ClimbingBoxLoader } from 'react-spinners'
+import { GridLoader } from 'react-spinners'
 
  
 
@@ -150,7 +150,7 @@ const Cart = () => {
       
       {loading? 
       <div className='--pageSpace --loadingPage mainbg w-100 d-flex justify-content-center align-items-center position-absolute' zIndex={999}>
-        <ClimbingBoxLoader color="#8b622e"  loading={loading}/>
+        <GridLoader color="#8b622e"  loading={loading}/>
       </div>
       : null}
       

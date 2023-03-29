@@ -510,3 +510,7 @@ background: #eee;
   z-index: 251;
 }
 
+.--loadingPage-entire{
+  z-index:990;
+}
+

@@ -3,7 +3,7 @@ import React from 'react'
 import HomeProduct from '../components/HomeProduct'
 import ProSelected from '../components/ProSelected'
 
-import ClimbingBoxLoader from 'react-spinners/ClimbingBoxLoader'
+import {GridLoader} from 'react-spinners'
 
 
 const Products = () => {
@@ -27,7 +27,7 @@ const Products = () => {
     <div>
       {loading? 
       <div className='--pageSpace --loadingPage mainbg w-100 d-flex justify-content-center align-items-center' zIndex={999}>
-        <ClimbingBoxLoader color="#8b622e"  loading={loading}/>
+        <GridLoader color="#8b622e"  loading={loading}/>
       </div>
       : 
       <>
