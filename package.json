@@ -1,4 +1,5 @@
 {
+  "homepage": "http://Pokkalo.github.io/",
   "name": "forboot",
   "version": "0.1.0",
   "private": true,
@@ -25,13 +26,15 @@
     "react-scripts": "5.0.1",
     "react-slick": "^0.29.0",
     "react-spinners": "^0.13.8",
+    "serve": "^14.2.0",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "prod": "npm run-script build && serve build"
   },
   "eslintConfig": {
     "extends": [
@@ -50,5 +53,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^5.0.0"
   }
 }
